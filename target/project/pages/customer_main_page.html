@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Customer</title>
+</head>
+<header style="text-align: center;">
+    <h1>Welcome</h1>
+    <br/>
+    <br/>
+    <br/>
+</header>
+<body style="background-color: ghostwhite">
+<div align="center">
+    <table>
+        <tr>
+            <td>
+                <input style="background-color: chartreuse" type="submit" name="selectCars" value="See available cars">
+            </td>
+            <td>
+                Choose select by
+                <select name="selectCarsBy">
+                    <option> general </option>
+                    <option> brand </option>
+                    <option> quality </option>
+                    <option> sorted model </option>
+                    <option> sorted price </option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td>
+                Please, choose a car:
+                <select name="choiceOfCars">
+                    <option> ........................................................ </option>
+                    <option> ... </option>
+                </select>
+            </td>
+            <td>
+                Please, choose when you will rent the car:
+                <input type="date" name="since">
+            </td>
+            <td>
+                Please, choose when you will return the car:
+                <input type="date" name="till">
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <form>
+        Do you want to rent a driver?
+        Yes
+        <input type="radio" name="d" value="Yes"/>
+        No
+        <input type="radio" name="d" value="No"/>
+        <br/>
+        <br/>
+        <input type="submit" name="showDrivers" value="Show free drivers"/>
+        <select>
+            <option> ........... </option>
+            <option> ........... </option>
+            <option> ........... </option>
+            <option> ........... </option>
+        </select>
+    </form>
+    <br/>
+    Car's price:
+    <input disabled="disabled" type="text" value=""/>
+    <br/>
+    <br/>
+    <br/>
+    <input style="background-color: chartreuse" type="submit" name="makeOrder" value="Make the order">
+</div>
+<div style="margin-top: 100px;" align="center">
+    <input style="background-color: chartreuse" type="submit" name="selectOrders" value="Show my orders"/>
+    <br/>
+    <br/>
+    <table border='1' bordercolor="red">
+        <tr border="1">
+            <th> id </th>
+            <th> brand </th>
+            <th> model </th>
+            <th> quality </th>
+            <th> customer's first name </th>
+            <th> customer's middle name </th>
+            <th> customer's last name </th>
+            <th> customer's birthday </th>
+            <th> driver's name </th>
+            <th> driver's surname </th>
+            <th> since </th>
+            <th> till </th>
+            <th> price </th>
+        </tr>
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

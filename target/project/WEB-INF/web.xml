@@ -1,0 +1,53 @@
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>Sign Up</servlet-name>
+        <servlet-class>servlets.SignUp</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign Up</servlet-name>
+        <url-pattern>/signUp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Sign In</servlet-name>
+        <servlet-class>servlets.SignIn</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Sign In</servlet-name>
+        <url-pattern>/signIn</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>User page</servlet-name>
+        <servlet-class>servlets.UserPage</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>User page</servlet-name>
+        <url-pattern>/userPage</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Selector</servlet-name>
+        <servlet-class>servlets.Selector</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Selector</servlet-name>
+        <url-pattern>/selector</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>pages/signIn.jsp</welcome-file>
+    </welcome-file-list>
+
+    <resource-ref>
+        <res-ref-name>jdbc/orders</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+        <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+</web-app>

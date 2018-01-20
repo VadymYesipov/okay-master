@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Admin</title>
+</head>
+<body style="background-color: ghostwhite">
+<header style="text-align: center;">
+    <h1>Welcome</h1>
+    <br/>
+</header>
+<div align="center">
+    <div>
+        <input type="submit" name="addCar" value="Add a car"/>
+        <br/>
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    Brand:
+                    <select name="selectBrands">
+                        <option>..........</option>
+                        <option>..........</option>
+                        <option>..........</option>
+                    </select>
+                </td>
+                <td>
+                    Model:
+                    <input type="text" value="Type in a model"/>
+                </td>
+                <td>
+                    Quality:
+                    <select name="selectQualities">
+                        <option>..........</option>
+                        <option>..........</option>
+                        <option>..........</option>
+                    </select>
+                </td>
+                <td>
+                    Price:
+                    <input type="text" value="Type in a price"/>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <input type="submit" name="add" value="Send the new car to database"/>
+    </div>
+
+    <div style="margin-top: 50px">
+        <input type="submit" name="editCar" value="Edit a car"/>
+        <br/>
+        <br/>
+        Please, choose a car:
+        <select name="choiceOfCars">
+            <option> ........................................................ </option>
+            <option> ... </option>
+        </select>
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    Brand:
+                    <select name="selectBrands">
+                        <option>..........</option>
+                        <option>..........</option>
+                        <option>..........</option>
+                    </select>
+                </td>
+                <td>
+                    Model:
+                    <input type="text" value="Type in a model"/>
+                </td>
+                <td>
+                    Quality:
+                    <select name="selectQualities">
+                        <option>..........</option>
+                        <option>..........</option>
+                        <option>..........</option>
+                    </select>
+                </td>
+                <td>
+                    Price:
+                    <input type="text" value="Type in a price"/>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <input type="submit" name="edit" value="Send the edited car to database">
+    </div>
+
+    <div style="margin-top: 50px">
+        <input type="submit" name="deleteCar" value="Delete a car">
+        <br/>
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    <select name="choiceOfCars">
+                        <option>..............................................</option>
+                        <option>..............................................</option>
+                        <option>..............................................</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" name="delete" value="Update database">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 50px">
+        <input type="submit" name="changeCustomer" value="Block/Unblock customer">
+        <br/>
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    <select name="choiceOfCustomers">
+                        <option>..............................................</option>
+                        <option>..............................................</option>
+                        <option>..............................................</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="submit" name="blockUnblock" value="Send to database">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="margin-top: 50px">
+        <input type="submit" name="registerManager" value="Register a manager">
+        <br/>
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    First name:
+                    <input type="text" name="firstNameField" value="Type in a first name">
+                </td>
+                <td>
+                    Middle name:
+                    <input type="text" name="middleField" value="Type in a middle name">
+                </td>
+                <td>
+                    Last Name:
+                    <input type="text" name="lastNameField" value="Type in a last name">
+                </td>
+                <td>
+                    Birthday:
+                    <input type="date" name="birthdayField" value="Type in a birthday">
+                </td>
+                <td>
+                    Login:
+                    <input type="text" name="nameField" value="Type in a login">
+                </td>
+                <td>
+                    Password:
+                    <input type="password" name="nameField" value="Type in a password">
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <input type="submit" name="register" value="Send the new manager to database">
+    </div>
+</div>
+</body>
+</html>
