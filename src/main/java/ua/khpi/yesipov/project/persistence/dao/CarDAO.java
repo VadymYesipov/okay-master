@@ -21,8 +21,10 @@ public interface CarDAO {
     //admin
     public boolean updateCar(Car car);
 
+    public boolean update(Car car);
+
     //customer
-    public List<Car> selectCars();
+    public List<Car> selectCars(int id);
 
     public List<Car> selectAllCars();
 
@@ -41,4 +43,8 @@ public interface CarDAO {
     public List<Brand> selectAvailableBrands();
 
     public List<Quality> selectAvailableQualities();
+
+    public double selectPrice(String model);
+
+    public Integer selectCount();
 }

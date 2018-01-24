@@ -48,7 +48,6 @@ public class MySQLRoleDAO implements RoleDAO {
             }
             resultSet.close();
             statement.close();
-            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

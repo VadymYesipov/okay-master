@@ -40,6 +40,87 @@
         <url-pattern>/selector</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Price getter</servlet-name>
+        <servlet-class>servlets.PriceGetter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Price getter</servlet-name>
+        <url-pattern>/priceGetter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Rent</servlet-name>
+        <servlet-class>servlets.Rent</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Rent</servlet-name>
+        <url-pattern>/rent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Car adder</servlet-name>
+        <servlet-class>servlets.CarAdder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Car adder</servlet-name>
+        <url-pattern>/carAdder</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Car deleter</servlet-name>
+        <servlet-class>servlets.CarDeleter</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Car deleter</servlet-name>
+        <url-pattern>/carDeleter</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Block unblock</servlet-name>
+        <servlet-class>servlets.BlockUnblock</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Block unblock</servlet-name>
+        <url-pattern>/blockUnblock</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>servlets.Register</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Changer</servlet-name>
+        <servlet-class>servlets.Changer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Changer</servlet-name>
+        <url-pattern>/carChanger</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Cancel</servlet-name>
+        <servlet-class>servlets.CancelServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Cancel</servlet-name>
+        <url-pattern>/cancelServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Punisher</servlet-name>
+        <servlet-class>servlets.Punisher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Punisher</servlet-name>
+        <url-pattern>/punisher</url-pattern>
+    </servlet-mapping>
+    
     <welcome-file-list>
         <welcome-file>pages/signIn.jsp</welcome-file>
     </welcome-file-list>

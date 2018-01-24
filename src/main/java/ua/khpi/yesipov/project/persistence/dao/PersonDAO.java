@@ -18,7 +18,7 @@ public interface PersonDAO {
 
     public boolean updatePerson(Person person);
 
-    public List<Person> selectPerson();
-
     public int selectCount();
+
+    public List<Person> selectPersons();
 }

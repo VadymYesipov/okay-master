@@ -2,7 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.OrderDAO" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.MySqlDAOFactory" %>
-<%@ page import="ua.khpi.yesipov.project.persistence.domain.*" %><%--
+<%@ page import="ua.khpi.yesipov.project.persistence.domain.*" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 017 17.01.18
@@ -65,7 +67,7 @@
                 <td>
                     <select name ="selectByBrand" disabled="disabled">
                         <% for (Brand brand : carDAO.selectAvailableBrands()) { %>
-                        <option value=<%= brand.getName() %>> <%= brand.getName() %> </option>
+                        <option> <%= brand.getName() %> </option>
                         <% } %>
                     </select>
                 </td>
@@ -86,70 +88,106 @@
             <tr>
                 <td>
                     Please, choose a car:<br/>
-                    <select name="choiceOfCars">
+                    <select name="choiceOfCars" onclick="makeSinceAble()">
                         <c:forEach var="car" items="${cars}">
-                            <option> <c:out value="${car}"/> </option>
+                            <option> <c:out value="${car}" /> </option>
                         </c:forEach>
                     </select>
                 </td>
+                <script>
+                    function makeSinceAble() {
+                        var since = myForm.since;
+                        since.disabled = "";
+
+                        var today = new Date();
+                        var dd = today.getDate();
+                        var mm = today.getMonth() + 1; //January is 0!
+                        var yyyy = today.getFullYear();
+                        if (dd < 10) {
+                            dd = '0' + dd
+                        }
+                        if (mm < 10) {
+                            mm = '0' + mm
+                        }
+                        today = yyyy + '-' + mm + '-' + dd;
+                        since.min = today;
+                    }
+                </script>
                 <td>
                     Please, choose when you will rent the car:<br/>
-                    <input type="date" name="since">
+                    <input type="date" name="since" disabled="disabled" onchange="makeTillAble()">
                 </td>
+                <script>
+                    function makeTillAble() {
+                        var since = myForm.since;
+                        var till = myForm.till;
+                        till.disabled = "";
+                        till.min = since.value;
+                    }
+                </script>
                 <td>
                     Please, choose when you will return the car:<br/>
-                    <input type="date" name="till">
+                    <input type="date" name="till" disabled="disabled" onchange="makeSelectYesNoAble()">
                 </td>
+                <script>
+                    function makeSelectYesNoAble() {
+                        var cardio = myForm.selectYesNo;
+                        cardio.disabled = "";
+                    }
+                </script>
             </tr>
         </table>
-        <br/>
         <br/>
         <table>
             <tr>
                 <td>
                     Do you want to rent a driver?
-                    <select name="selectYesNo" onchange="showDrivers()">
-                        <option value="yes"> Yes </option>
+                    <select name="selectYesNo" disabled="disabled" onclick="showDrivers()">
                         <option value="no"> No </option>
+                        <option value="yes"> Yes </option>
                     </select>
                 </td>
                 <script>
-                    var cardio = document.selectYesNo;
-                    var drivers = myForm.selectDrivers;
+                    var cardio = myForm.selectYesNo;
                     function showDrivers() {
+                        var drivers = myForm.selectDrivers;
                         <jsp:useBean id="driverDAO" class="ua.khpi.yesipov.project.persistence.dao.impl.MySQLDriverDAO"/>
+                        var price = myForm.showPrice;
                         if (cardio.selectedIndex === 0) {
-                            drivers.disabled = "";
-                        } else {
                             drivers.disabled = "disabled";
+                            price.disabled = "";
+                        } else {
+                            drivers.disabled = "";
                         }
+                    }
+                    function showDriverList() {
+                        var price = myForm.showPrice;
+                        price.disabled = "";
                     }
                     cardio.addEventListener("change", showDrivers());
                 </script>
                 <td>
-                    <select name="selectDrivers" disabled="disabled">
+                    <select name="selectDrivers" disabled="disabled" onclick="showDriverList()">
                         <% for (Driver driver : driverDAO.selectDrivers()) { %>
-                        <option value= <%= driver.getSurname() %>> <%= driver.getName() + " " + driver.getSurname() %> </option>
+                        <option> <%= driver.getName() + " " + driver.getSurname() %> </option>
                         <% } %>
                     </select>
                 </td>
             </tr>
         </table>
-
-
+        <br/>
+        <input type="submit" disabled="disabled" name="showPrice" formaction="/priceGetter" value="Show a cost of the car"/>
         <br/>
         <br/>
-        <input type="submit" name="showPrice" value="Show a cost of the car"/>
+        Car's price:
+        <input disabled="disabled" name="price" type="text" value="${priceCar}"/>
+        <br/>
+        <br/>
+        <input style="background-color: chartreuse" type="submit" name="makeOrder" formaction="/rent" value="Make the order">
     </form>
-    <br/>
-    Car's price:
-    <input disabled="disabled" type="text" value=""/>
-    <br/>
-    <br/>
-    <br/>
-    <input style="background-color: chartreuse" type="submit" name="makeOrder" value="Make the order">
 </div>
 <div style="margin-top: 100px;" align="center">
+    <h1>Approved orders</h1>
     <br/>
     <br/>
     <%! private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory(); %>
@@ -162,10 +200,6 @@
             <th> brand </th>
             <th> model </th>
             <th> quality </th>
-            <th> customer's first name </th>
-            <th> customer's middle name </th>
-            <th> customer's last name </th>
-            <th> customer's birthday </th>
             <th> driver's name </th>
             <th> driver's surname </th>
             <th> since </th>
@@ -177,10 +211,6 @@
             <td> <%= order.getCar().getBrand().getName() %> </td>
             <td> <%= order.getCar().getModel() %> </td>
             <td> <%= order.getCar().getQuality().getName() %> </td>
-            <td> <%= order.getPerson().getFirstName() %> </td>
-            <td> <%= order.getPerson().getMiddleName() %> </td>
-            <td> <%= order.getPerson().getLastName() %> </td>
-            <td> <%= order.getPerson().getBirthday() %> </td>
             <td> <%= order.getDriver().getName() %> </td>
             <td> <%= order.getDriver().getSurname() %> </td>
             <td> <%= order.getSince() %> </td>
@@ -188,6 +218,23 @@
             <td> <%= order.getPrice() %>  </td>
         </tr>
         <% } %>
+    </table>
+</div>
+<div style="margin-top: 100px;" align="center">
+    <h1>Denied and fined orders</h1>
+    <br/>
+    <br/>
+    <table border='1' bordercolor="red">
+        <% Map<String, List<String>> map = (Map<String, List<String>>) session.getServletContext().getAttribute("sessionMap"); %>
+        <% String login = ((Person) session.getAttribute("person")).getLogin(); %>
+        <% session.setAttribute("reasons", map.get(login)); %>
+        <c:forEach var="deniedOrder" items="${reasons}" >
+            <tr>
+                <td>
+                    <c:out value="${deniedOrder}"/>
+                </td>
+            </tr>
+        </c:forEach>
     </table>
 </div>
 </body>

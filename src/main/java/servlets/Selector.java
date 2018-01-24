@@ -25,12 +25,15 @@ public class Selector extends HttpServlet {
         CarDAO carDAO = mySqlDAOFactory.getCarDAO();
 
         HttpSession session = req.getSession();
+        List<Car> availableCars = carDAO.selectCars(0);
+        session.setAttribute("availableCars", availableCars);
+
         List<String> strings = new ArrayList<String>();
         String parameter = req.getParameter("selectCarsBy");
         List<Car> cars = null;
 
         if (parameter.equals("default")) {
-            cars = carDAO.selectCars();
+            cars = carDAO.selectCars(0);
             showCars(strings, cars);
         }
         if (parameter.equals("sorted model")) {
@@ -44,31 +47,25 @@ public class Selector extends HttpServlet {
         if (parameter.equals("brand")) {
             BrandDAO brandDAO = mySqlDAOFactory.getBrandDAO();
             List<Brand> brands = brandDAO.select();
-            String[] parameters = req.getParameterValues("selectByBrand");
-            for (int i = 0; i < parameters.length; i++) {
-                for (Brand brand : brands) {
-                    parameters[i] = parameters[i].equals("Range") ? parameters[i] + " Rover" : parameters[i];
-                    if (parameters[i].equals(brand.getName())) {
-                        System.out.println(brand.getName());
-                        cars = carDAO.selectCarsByBrand(brand.getName());
-                        showCars(strings, cars);
-                        break;
-                    }
+            String param = req.getParameter("selectByBrand");
+            for (Brand brand : brands) {
+                if (param.equals(brand.getName())) {
+                    System.out.println(brand.getName());
+                    cars = carDAO.selectCarsByBrand(brand.getName());
+                    showCars(strings, cars);
+                    break;
                 }
             }
-            System.out.println(cars);
         }
         if (parameter.equals("quality")) {
             QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO();
             List<Quality> qualities = qualityDAO.select();
-            String[] parameters = req.getParameterValues("selectByQuality");
-            for (int i = 0; i < parameters.length; i++) {
-                for (Quality quality : qualities) {
-                    if (parameters[i].equals(quality.getName())) {
-                        cars = carDAO.selectCarsByQuality(quality.getName());
-                        showCars(strings, cars);
-                        break;
-                    }
+            String param = req.getParameter("selectByQuality");
+            for (Quality quality : qualities) {
+                if (param.equals(quality.getName())) {
+                    cars = carDAO.selectCarsByQuality(quality.getName());
+                    showCars(strings, cars);
+                    break;
                 }
             }
         }
@@ -80,11 +77,10 @@ public class Selector extends HttpServlet {
     private void showCars(List<String> strings, List<Car> cars) {
         for (Car car : cars) {
             StringBuilder result = new StringBuilder();
-            result.append(car.getBrand().getName() + " " + car.getModel() +
+            result.append(car.getModel() + " " + car.getBrand().getName() +
                     ", quality: " + car.getQuality().getName() + " - " + car.getPrice() + "$");
             strings.add(result.toString());
         }
-
     }
 
     @Override

@@ -41,14 +41,15 @@ public class SignIn extends HttpServlet {
                 //req.getRequestDispatcher("/userPage").forward(req, resp);
             } else if (admin.getRole() != null) {
                 session.setAttribute("person", admin);
+                resp.sendRedirect("pages/admin_main_page.jsp");
             } else if (manager.getRole() != null) {
                 session.setAttribute("person", manager);
+                resp.sendRedirect("pages/manager_main_page.jsp");
             }
 
         } else {
             resp.sendRedirect("pages/signUp.jsp");
         }
-
     }
 
     @Override

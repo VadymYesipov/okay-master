@@ -58,7 +58,7 @@ public class BusinessLogic {
                 System.exit(0);
             }
         }
-        cars = carDAO.selectCars();//carDAO.selectSortedByModel();carDAO.selectSortedByPrice();carDAO.selectCarsByBrand("Audi");carDAO.selectCarsByQuality("good");
+        cars = carDAO.selectCars(0);//carDAO.selectSortedByModel();carDAO.selectSortedByPrice();carDAO.selectCarsByBrand("Audi");carDAO.selectCarsByQuality("good");
         System.out.println("Which car do you want to rent");
         for (Car car : cars) {
             System.out.println(car);

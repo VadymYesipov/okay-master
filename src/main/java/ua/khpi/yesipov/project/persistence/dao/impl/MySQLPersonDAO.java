@@ -1,5 +1,6 @@
 package ua.khpi.yesipov.project.persistence.dao.impl;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.domain.Person;
 import ua.khpi.yesipov.project.persistence.domain.Role;
@@ -8,9 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLPersonDAO implements PersonDAO {
+
+    private MysqlDataSource mysqlDataSource;
 
     private Connection connection;
     private PreparedStatement preparedStatement;
@@ -103,11 +107,15 @@ public class MySQLPersonDAO implements PersonDAO {
     }
 
     public boolean updatePerson(Person person) {
+        try {
+            preparedStatement = connection.prepareStatement("UPDATE orders.person SET isBlocked=" + person.getIsBlocked()
+                    + " WHERE id=" + person.getId());
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return false;
-    }
-
-    public List<Person> selectPerson() {
-        return null;
     }
 
     public int selectCount() {
@@ -129,5 +137,51 @@ public class MySQLPersonDAO implements PersonDAO {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    public List<Person> selectPersons() {
+        try {
+            preparedStatement = connection.prepareStatement("SELECT " +
+                    "person.id, role.id as role_id, role.role, first_name, middle_name, last_name, birthday, login, password, isBlocked\n" +
+                    "FROM orders.person person\n" +
+                    "LEFT JOIN orders.role role on person.role_id=role.id\n" +
+                    "WHERE role_id=2;");
+
+
+            resultSet = preparedStatement.executeQuery();
+
+            List<Person> persons = new ArrayList<Person>();
+
+            while (resultSet.next()) {
+                Person person = new Person();
+
+                person.setId(resultSet.getInt(1));
+
+                Role role = new Role();
+                role.setId(resultSet.getInt(2));
+                role.setRole(resultSet.getString(3));
+                person.setRole(role);
+
+                person.setFirstName(resultSet.getString(4));
+                person.setMiddleName(resultSet.getString(5));
+                person.setLastName(resultSet.getString(6));
+                person.setBirthday(resultSet.getDate(7));
+
+                person.setLogin(resultSet.getString(8));
+                person.setPassword(resultSet.getString(9));
+
+                person.setIsBlocked(resultSet.getInt(10));
+
+                persons.add(person);
+            }
+
+            resultSet.close();
+            preparedStatement.close();
+
+            return persons;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

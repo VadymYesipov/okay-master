@@ -19,9 +19,9 @@
     <br/>
     <h1>Sign up</h1>
 </header>
-<div style="text-align: center;">
-    <form style="align-content: center; padding-top: 100px; padding-left: 200px; padding-right: 200px; padding-bottom: 100px;" action="/signUp" name="myForm" method="post">
-        <fieldset style="align-content: center; margin-left: 500px; margin-right: 500px";>
+<div align="center">
+    <form align="center" action="/signUp" name="myForm" method="post">
+        <fieldset align="center" style="margin-left: 500px; margin-right: 500px;">
             <legend align="center">Enter your login and password</legend>
             login <br /><input type='text' name='login' required/><p/>
             password <br /> <input type='password' name='password' required/><p/>

@@ -14,7 +14,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SignUp extends HttpServlet {
 
@@ -30,25 +32,39 @@ public class SignUp extends HttpServlet {
         HttpSession session = req.getSession();
 
         Person person = new Person();
+
         person.setId(personDAO.selectCount() + 1);
+
         person.setRole(roles.get(1));
+
         String login = req.getParameter("login");
         person.setLogin(login);
+
         String password = req.getParameter("password");
         person.setPassword(password);
+
         person.setFirstName(req.getParameter("firstName"));
         person.setMiddleName(req.getParameter("middleName"));
         person.setLastName(req.getParameter("lastName"));
         person.setBirthday(Date.valueOf(req.getParameter("birthday")));
+
         person.setIsBlocked(0);
 
         Person customer = personDAO.findCustomer(login, password);
         Person admin = personDAO.findAdmin(login, password);
         Person manager = personDAO.findManager(login, password);
+
         if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
             System.out.println("-------------------error---------------------------");
             resp.sendRedirect("pages/signUpError.jsp");
         } else {
+            Map<String, List> sessionMap = (Map<String, List>) req.getServletContext().getAttribute("sessionMap");
+            if (sessionMap == null) {
+                sessionMap = new HashMap<String, List>();
+            }
+            sessionMap.put(login, new ArrayList<String>());
+            req.getServletContext().setAttribute("sessionMap", sessionMap);
+
             personDAO.insertPerson(person);
             personList.add(person);
             resp.sendRedirect("pages/signIn.jsp");

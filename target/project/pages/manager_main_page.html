@@ -2,13 +2,70 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Admin</title>
+    <title>Manager</title>
 </head>
 <header style="text-align: center;">
     <h1>Welcome</h1>
     <br/>
 </header>
 <body style="background-color: ghostwhite">
-
+<div align="center">
+    <br/>
+    <br/>
+    <br/>
+    <form name="strictForm">
+        <table>
+            <tr>
+                <td>
+                    Choose a possible future order:
+                </td>
+                <td>
+                    Point the reason:
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="possibleOrders">
+                    </select>
+                </td>
+                <td>
+                    <textarea name="reason" style="resize: none; height: 100px; width: 400px" placeholder="Type in a reason"></textarea>
+                </td>
+                <td>
+                    <input type="submit" value="Cancel the order"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br/>
+    <br/>
+    <br/>
+    <form name="damageForm">
+        <table>
+            <tr>
+                <td>
+                    Choose a yesterday returned car:
+                </td>
+                <td>
+                    Type in a fine (if it's damaged):
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="returnedCars">
+                    </select>
+                </td>
+                <td>
+                    <input type="number" min="100" name="fine"/>
+                </td>
+                <td>
+                    <input type="submit" value="Register the car/Fine the customer">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

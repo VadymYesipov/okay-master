@@ -14,7 +14,9 @@ public interface OrderDAO {
 
     public boolean updateOrder(Order order);
 
-    public List<Order> selectAllOrders();
+    public List<Order> selectFutureOrders();
+
+    public List<Order> selectPastOrders();
 
     public List<Order> selectOrders(int id);
 
