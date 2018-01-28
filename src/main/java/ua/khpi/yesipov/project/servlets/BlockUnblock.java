@@ -1,41 +1,44 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
-import ua.khpi.yesipov.project.persistence.dao.BrandDAO;
-import ua.khpi.yesipov.project.persistence.dao.CarDAO;
-import ua.khpi.yesipov.project.persistence.dao.QualityDAO;
-import ua.khpi.yesipov.project.persistence.domain.Brand;
-import ua.khpi.yesipov.project.persistence.domain.Car;
-import ua.khpi.yesipov.project.persistence.domain.Quality;
+import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
+import ua.khpi.yesipov.project.persistence.domain.Person;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-public class CarDeleter extends HttpServlet {
+public class BlockUnblock extends HttpServlet {
+
+    private static final Logger log = Logger.getLogger(SignIn.class);
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("BlockUnblock is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
 
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
-        List<Car> cars = carDAO.selectAllCars();
+        PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
+        List<Person> persons = personDAO.selectPersons();
 
-        String parameter = req.getParameter("choiceOfCars");
+        String parameter = req.getParameter("choiceOfCustomers");
         String[] parameters = parameter.split(" ");
-        int id = Integer.parseInt(parameters[1]);
+        int id = Integer.valueOf(parameters[1]);
 
-        for (Car car : cars) {
-            if (car.getId() == id) {
-                carDAO.deleteCar(car);
+        for (Person person : persons) {
+            if (person.getId() == id) {
+                person.setIsBlocked(person.getIsBlocked() == 1 ? 0 : 1);
+                System.out.println(person);
+                personDAO.updatePerson(person);
             }
         }
 
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

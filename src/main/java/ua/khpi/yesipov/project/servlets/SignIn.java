@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.dao.RoleDAO;
@@ -20,10 +21,12 @@ public class SignIn extends HttpServlet {
     private RoleDAO roleDAO = mySqlDAOFactory.getRoleDAO();
     private final List<Role> roles = roleDAO.selectRoles();
     private PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
+    private static final Logger log = Logger.getLogger(SignIn.class);
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Starting SignIn");
+        log.debug("Starting signing in");
+
         HttpSession session = req.getSession();
 
         String login = req.getParameter("login");
@@ -36,18 +39,22 @@ public class SignIn extends HttpServlet {
         if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
 
             if (customer.getRole() != null) {
+                log.debug("Redirect to customer main page");
                 session.setAttribute("person", customer);
                 resp.sendRedirect("pages/customer_main_page.jsp");
                 //req.getRequestDispatcher("/userPage").forward(req, resp);
             } else if (admin.getRole() != null) {
+                log.debug("Redirect to admin main page");
                 session.setAttribute("person", admin);
                 resp.sendRedirect("pages/admin_main_page.jsp");
             } else if (manager.getRole() != null) {
+                log.debug("Redirect to manager main page");
                 session.setAttribute("person", manager);
                 resp.sendRedirect("pages/manager_main_page.jsp");
             }
 
         } else {
+            log.debug("Redirect to customer main page");
             resp.sendRedirect("pages/signUp.jsp");
         }
     }

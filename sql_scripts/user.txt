@@ -1,0 +1,1 @@
+INSERT INTO `orders`.`user` (`id`, `role_id`, `first_name`, `middle_name`, `last_name`, `birthday`, `login`, `password`) VALUES ('1', '1', 'Vadym', 'Vitaliyovich', 'Yesipov', '1998-07-08', 'admin', 'admin');

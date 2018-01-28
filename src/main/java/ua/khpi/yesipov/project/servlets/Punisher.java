@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
@@ -19,8 +20,12 @@ import java.util.Map;
 
 public class Punisher extends HttpServlet {
 
+    private static final Logger log = Logger.getLogger(SignIn.class);
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("Punisher is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
 
         CarDAO carDAO = mySqlDAOFactory.getCarDAO();
@@ -28,6 +33,8 @@ public class Punisher extends HttpServlet {
         OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO();
 
         List<Order> orders = orderDAO.selectFutureOrders();
+
+        req.setCharacterEncoding("UTF-8");
 
         String parameter = req.getParameter("returnedCars");
         String[] parameters = parameter.split(" ");
@@ -39,7 +46,6 @@ public class Punisher extends HttpServlet {
         Map<String, List<String>> map = (Map<String, List<String>>) session.getServletContext().getAttribute("sessionMap");
 
         String login = parameters[2].substring(0, parameters[2].length() - 1);
-        System.out.println(login);
         String number = req.getParameter("number");
         Order temp = null;
         if (number.equals("")) {
@@ -50,6 +56,7 @@ public class Punisher extends HttpServlet {
                     car.setId(order.getCar().getId());
                     car.setIsOrdered(0);
                     carDAO.updateCar(car);
+                    orderDAO.deleteOrder(order);
                 }
             }
         } else {
@@ -63,18 +70,19 @@ public class Punisher extends HttpServlet {
             }
             List<String> list = map.get(login);
             String reasonParam = parameter.replaceFirst("[\\d]: ", "");
-            list.add("You were fined on: " + number + "$ because you broke the car: " + reasonParam);
+            list.add("You were fined on: " + number + "$, because: " + reasonParam);
             map.put(login, list);
 
             session.getServletContext().setAttribute("sessionMap", map);
         }
-        
+
         Driver driver = new Driver();
         driver.setId(temp.getDriver().getId());
         driver.setIsBusy(0);
         driverDAO.updateDriver(driver);
 
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

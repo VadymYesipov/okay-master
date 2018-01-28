@@ -1,0 +1,5 @@
+INSERT INTO `orders`.`quality` (`id`, `quality`) VALUES ('1', 'good');
+
+INSERT INTO `orders`.`quality` (`id`, `quality`) VALUES ('2', 'used');
+
+INSERT INTO `orders`.`quality` (`id`, `quality`) VALUES ('3', 'poor');

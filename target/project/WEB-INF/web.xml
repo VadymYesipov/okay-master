@@ -23,15 +23,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>User page</servlet-name>
-        <servlet-class>servlets.UserPage</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>User page</servlet-name>
-        <url-pattern>/userPage</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>Selector</servlet-name>
         <servlet-class>servlets.Selector</servlet-class>
     </servlet>
@@ -120,6 +111,19 @@
         <servlet-name>Punisher</servlet-name>
         <url-pattern>/punisher</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LocaleServlet</servlet-name>
+        <servlet-class>servlets.LocaleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LocaleServlet</servlet-name>
+        <url-pattern>/locale</url-pattern>
+    </servlet-mapping>
+    
+    <listener>
+        <listener-class>listeners.ContextListener</listener-class>
+    </listener>
     
     <welcome-file-list>
         <welcome-file>pages/signIn.jsp</welcome-file>

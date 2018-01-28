@@ -1,11 +1,11 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Driver;
-import ua.khpi.yesipov.project.persistence.domain.Person;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,18 +16,18 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class PriceGetter extends HttpServlet {
 
     private final int HOUR_IN_MILLISECONDS = 86400000;
+    private static final Logger log = Logger.getLogger(SignIn.class);
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("PriceGetter is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
         CarDAO carDAO = mySqlDAOFactory.getCarDAO();
         DriverDAO driverDAO = mySqlDAOFactory.getDriverDAO();
@@ -41,17 +41,17 @@ public class PriceGetter extends HttpServlet {
         List<Driver> drivers = driverDAO.selectDrivers();
         double tariff = 0;
         if (param.equals("yes")) {
+            log.debug("Customer chose yes");
             String driverName = req.getParameter("selectDrivers");
             for (Driver driver : drivers) {
                 if (driverName.equals(driver.getName() + " " + driver.getSurname())) {
                     driver.setIsBusy(1);
                     session.setAttribute("driver", driver);
                     tariff = 100;
-                    System.out.println("hui");
                 }
             }
         } else {
-            System.out.println("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhheeeeeeeeeeeeeeeeeeerrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+            log.debug("Customer chose no");
             Driver driver = new Driver();
             driver.setId(1);
             driver.setName(null);
@@ -70,15 +70,16 @@ public class PriceGetter extends HttpServlet {
                 double price = carDAO.selectPrice(temps[0]);
                 double days = getDays(req, session);
 
-                System.out.println(price);
-                System.out.println(days);
-                System.out.println(tariff);
+                log.debug("price = " + price);
+                System.out.println("days = " + days);
+                System.out.println("tariff = " + tariff);
 
                 session.setAttribute("priceCar", price * days + tariff * days);
                 session.setAttribute("car", returnCar(cars, parameter));
             }
         }
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.BrandDAO;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
@@ -19,8 +20,12 @@ import java.util.List;
 
 public class Selector extends HttpServlet {
 
+    private static final Logger log = Logger.getLogger(SignIn.class);
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("Selector is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
         CarDAO carDAO = mySqlDAOFactory.getCarDAO();
 
@@ -33,18 +38,23 @@ public class Selector extends HttpServlet {
         List<Car> cars = null;
 
         if (parameter.equals("default")) {
+            log.debug("default select");
             cars = carDAO.selectCars(0);
             showCars(strings, cars);
         }
         if (parameter.equals("sorted model")) {
+            log.debug("sorted model select");
             cars = carDAO.selectSortedByModel();
             showCars(strings, cars);
         }
         if (parameter.equals("sorted price")) {
+            log.debug("sorted price select");
             cars = carDAO.selectSortedByPrice();
             showCars(strings, cars);
         }
         if (parameter.equals("brand")) {
+            log.debug("brand select");
+
             BrandDAO brandDAO = mySqlDAOFactory.getBrandDAO();
             List<Brand> brands = brandDAO.select();
             String param = req.getParameter("selectByBrand");
@@ -58,6 +68,8 @@ public class Selector extends HttpServlet {
             }
         }
         if (parameter.equals("quality")) {
+            log.debug("quality select");
+
             QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO();
             List<Quality> qualities = qualityDAO.select();
             String param = req.getParameter("selectByQuality");
@@ -71,6 +83,7 @@ public class Selector extends HttpServlet {
         }
         session.setAttribute("cars", strings);
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

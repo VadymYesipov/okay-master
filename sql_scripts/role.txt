@@ -1,0 +1,5 @@
+INSERT INTO `orders`.`role` (`id`, `role`) VALUES ('1', 'admin');
+
+INSERT INTO `orders`.`role` (`id`, `role`) VALUES ('2', 'customer');
+
+INSERT INTO `orders`.`role` (`id`, `role`) VALUES ('3', 'manager');

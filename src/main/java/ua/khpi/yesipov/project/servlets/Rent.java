@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
@@ -20,8 +21,12 @@ import java.util.List;
 
 public class Rent extends HttpServlet {
 
+    private static final Logger log = Logger.getLogger(SignIn.class);
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("Rent is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
         CarDAO carDAO = mySqlDAOFactory.getCarDAO();
         OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO();
@@ -63,6 +68,7 @@ public class Rent extends HttpServlet {
         removeAttributes(session);
 
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

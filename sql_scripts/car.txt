@@ -1,0 +1,14 @@
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, price`, `isOrdered`) VALUES ('1', '1', 'Sprinter', '1', '1500', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('2', '2', 'TT', '1', '1500', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('3', '2', 'Q7', '1', '1000', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('4', '3', 'X7', '1', '1200', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('5', '4', 'Golf 2', '2', '300', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('6', '5', 'Velar', '1', '1500', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('7', '6', '350 Z', '1', '800', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('8', '6', 'Skyline', '1', '1000', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('9', '7', 'Civic', '2', '700', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('10', '8', 'Camry', '2', '500', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('11', '9', '6', '2', '500', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('12', '10', 'Zhiguli', '3', '40', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('13', '10', 'Niva', '3', '50', '0');
+INSERT INTO `orders`.`car` (`id`, `brand_id`, `model`, `quality_id`, `price`, `isOrdered`) VALUES ('14', '11', 'Sonata', '2', '300', '0');

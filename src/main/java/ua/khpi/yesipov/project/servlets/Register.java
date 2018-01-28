@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.dao.RoleDAO;
@@ -10,7 +11,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,8 +19,12 @@ import java.util.List;
 
 public class Register extends HttpServlet {
 
+    private static final Logger log = Logger.getLogger(SignIn.class);
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("Register is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
 
         PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
@@ -39,6 +43,7 @@ public class Register extends HttpServlet {
         Person manager = personDAO.findManager(login, password);
 
         if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
+            log.debug("Redirect to register manager error");
             resp.sendRedirect("pages/registerManagerError.jsp");
             return;
         } else {
@@ -63,6 +68,7 @@ public class Register extends HttpServlet {
         }
 
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

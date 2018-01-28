@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
@@ -19,8 +20,12 @@ import java.util.Map;
 
 public class CancelServlet extends HttpServlet {
 
+    private static final Logger log = Logger.getLogger(SignIn.class);
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        log.debug("Cancel servlet is starting");
+
         MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
 
         CarDAO carDAO = mySqlDAOFactory.getCarDAO();
@@ -28,6 +33,8 @@ public class CancelServlet extends HttpServlet {
         OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO();
 
         List<Order> orders = orderDAO.selectFutureOrders();
+
+        req.setCharacterEncoding("UTF-8");
 
         String parameter = req.getParameter("possibleOrders");
         String[] parameters = parameter.split(" ");
@@ -46,6 +53,8 @@ public class CancelServlet extends HttpServlet {
                 driver.setId(order.getDriver().getId());
                 driver.setIsBusy(0);
                 driverDAO.updateDriver(driver);
+
+                orderDAO.deleteOrder(order);
             }
         }
 
@@ -64,6 +73,7 @@ public class CancelServlet extends HttpServlet {
         session.getServletContext().setAttribute("sessionMap", map);
 
         String referer = req.getHeader("Referer");
+        log.debug("Redirect to " + referer);
         resp.sendRedirect(referer);
     }
 

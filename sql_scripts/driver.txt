@@ -1,0 +1,15 @@
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('1', 'Robert', 'Beasley', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('2', 'Stanley', 'Stafford', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('3', 'Nicholas', 'Pierce', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('4', 'Reynard', 'Stewart', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('5', 'Brice', 'Bell', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('6', 'Tracy', 'Hood', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('7', 'Lee', 'Melton', 'false');
+
+INSERT INTO `orders`.`driver` (`id`, `name`, `surname`, `isBusy`) VALUES ('8', 'Mark', 'Sharp', 'false');

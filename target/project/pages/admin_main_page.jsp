@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.MySqlDAOFactory" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.BrandDAO" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.domain.Brand" %>
@@ -17,15 +18,18 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="res" />
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Admin</title>
 </head>
 <body style="background-color: ghostwhite">
 <header style="text-align: center;">
-    <h1>Welcome</h1>
+    <h1><fmt:message key="welcome"/></h1>
     <br/>
 </header>
+<jsp:include page="language_part.jsp"></jsp:include>
 <div align="center">
     <div>
         <form name="addForm" action="/carAdder" method="post">
@@ -37,7 +41,7 @@
                 <table>
                     <tr>
                         <td>
-                            Brand:
+                            <fmt:message key="brand"/>
                             <select name="selectBrands">
                                 <% for (Brand brand : brands) { %>
                                 <option> <%= brand.getName() %> </option>
@@ -45,13 +49,13 @@
                             </select>
                         </td>
                         <td>
-                            Model:
-                            <input type="text" name="model" required/>
+                            <fmt:message key="model"/>
+                            <input type="text" name="model" placeholder="<fmt:message key="typeModel"/> " required/>
                         </td>
                         <%! private QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO(); %>
                         <%! private List<Quality> qualities  = (List<Quality>) qualityDAO.select(); %>
                         <td>
-                            Quality:
+                            <fmt:message key="quality"/>
                             <select name="selectQualities">
                                 <% for (Quality quality : qualities) { %>
                                 <option> <%= quality.getName() %> </option>
@@ -59,13 +63,13 @@
                             </select>
                         </td>
                         <td>
-                            Price:
-                            <input type="text" name="price" required/>
+                            <fmt:message key="price"/>
+                            <input type="text" name="price" placeholder="<fmt:message key="typePrice"/> " required/>
                         </td>
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" name="addCar" value="Add the car"/>
+                <input type="submit" name="addCar" value="<fmt:message key="addCar"/>"/>
             </fieldset>
         </form>
     </div>
@@ -73,7 +77,7 @@
     <div style="margin-top: 50px">
         <form action="/carChanger" method="post">
             <br/>
-            Please, choose a car:
+            <fmt:message key="chooseCar"/>
             <select name="choiceOfCars">
                 <% for (Car car : carDAO.selectAllCars()) { %>
                 <option> <%= "id: " + car.getId() + " — " + car.getBrand().getName() + " " + car.getModel() + ", quality: " +
@@ -85,7 +89,7 @@
             <table>
                 <tr>
                     <td>
-                        Brand:
+                        <fmt:message key="brand"/>
                         <select name="selectBrands">
                             <option/>
                             <% for (Brand brand : brands) { %>
@@ -94,11 +98,11 @@
                         </select>
                     </td>
                     <td>
-                        Model:
-                        <input type="text" name="modelChange" placeholder="Type in a model"/>
+                        <fmt:message key="model"/>
+                        <input type="text" name="modelChange" placeholder="<fmt:message key="typeModel"/>"/>
                     </td>
                     <td>
-                        Quality:
+                        <fmt:message key="quality"/>
                         <select name="selectQualities">
                             <option/>
                             <% for (Quality quality : qualities) { %>
@@ -107,13 +111,13 @@
                         </select>
                     </td>
                     <td>
-                        Price:
-                        <input type="text" name="priceChange" placeholder="Type in a price"/>
+                        <fmt:message key="price"/>
+                        <input type="text" name="priceChange" placeholder="<fmt:message key="typePrice"/>"/>
                     </td>
                 </tr>
             </table>
             <br/>
-            <input type="submit" name="editCar" value="Edit the car"/>
+            <input type="submit" name="editCar" value="<fmt:message key="editCar"/>"/>
         </form>
     </div>
 
@@ -132,7 +136,7 @@
                         </select>
                     </td>
                     <td>
-                        <input type="submit" name="deleteCar" value="Delete the car">
+                        <input type="submit" name="deleteCar" value="<fmt:message key="deleteCar"/>">
                     </td>
                 </tr>
             </table>
@@ -155,7 +159,7 @@
                         </select>
                     </td>
                     <td>
-                        <input type="submit" name="blockUnblock" value="Block/Unblock the customer">
+                        <input type="submit" name="blockUnblock" value="<fmt:message key="blockUnblock"/>">
                     </td>
                 </tr>
             </table>
@@ -188,33 +192,33 @@
                 <table>
                     <tr>
                         <td>
-                            First name:
-                            <input type="text" name="firstNameField" placeholder="Type in a first name" required>
+                            <fmt:message key="firstName"/>
+                            <input type="text" name="firstNameField" placeholder="<fmt:message key="typeFirstName"/>" required>
                         </td>
                         <td>
-                            Middle name:
-                            <input type="text" name="middleField" placeholder="Type in a middle name" required>
+                            <fmt:message key="middleName"/>
+                            <input type="text" name="middleField" placeholder="<fmt:message key="typeMiddleName"/>" required>
                         </td>
                         <td>
-                            Last Name:
-                            <input type="text" name="lastNameField" placeholder="Type in a last name" required>
+                            <fmt:message key="lastName"/>
+                            <input type="text" name="lastNameField" placeholder="<fmt:message key="typeLastName"/>" required>
                         </td>
                         <td>
-                            Birthday:
-                            <input type="date" name="birthdayField" placeholder="Type in a birthday" required>
+                            <fmt:message key="birthday"/>
+                            <input type="date" name="birthdayField" placeholder="<fmt:message key="typeBirthday"/>" required>
                         </td>
                         <td>
-                            Login:
-                            <input type="text" name="loginField" placeholder="Type in a login" required>
+                            <fmt:message key="login"/>
+                            <input type="text" name="loginField" placeholder="<fmt:message key="typeLogin"/>" required>
                         </td>
                         <td>
-                            Password:
-                            <input type="password" name="passwordField" placeholder="Type in a password" required>
+                            <fmt:message key="password"/>
+                            <input type="password" name="passwordField" placeholder="<fmt:message key="typePassword"/>" required>
                         </td>
                     </tr>
                 </table>
                 <br/>
-                <input type="submit" name="register" value="Register the new manager">
+                <input type="submit" name="register" value="<fmt:message key="registerManager"/>">
             </fieldset>
         </form>
     </div>

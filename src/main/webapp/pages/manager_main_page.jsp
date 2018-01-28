@@ -1,3 +1,4 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.MySqlDAOFactory" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.OrderDAO" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.domain.Order" %><%--
@@ -13,17 +14,20 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Manager</title>
 </head>
+<body style="background-color: ghostwhite">
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="res" />
 <header style="text-align: center;">
-    <h1>Welcome</h1>
+    <h1><fmt:message key="welcome"/></h1>
     <br/>
 </header>
-<body style="background-color: ghostwhite">
+<jsp:include page="language_part.jsp"></jsp:include>
 <div align="center">
     <br/>
     <br/>
     <br/>
     <form name="strictForm" action="/cancelServlet" method="post">
-        Choose a possible future order:</br></br>
+        <fmt:message key="strictForm"/></br></br>
         <%! private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory(); %>
         <%! private OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO(); %>
         <select name="possibleOrders">
@@ -39,16 +43,16 @@
         <table>
             <tr>
                 <td>
-                    Point the reason:
+                    <fmt:message key="reasonPointer"/>
                 </td>
                 <td></td>
             </tr>
             <tr>
                 <td>
-                    <textarea name="reason" style="resize: none; height: 100px; width: 400px" placeholder="Type in a reason"></textarea>
+                    <textarea name="reason" style="resize: none; height: 100px; width: 400px" placeholder="<fmt:message key="TypeReason"/>"></textarea>
                 </td>
                 <td>
-                    <input type="submit" value="Cancel the order"/>
+                    <input type="submit" value="<fmt:message key="cancelOrder"/>"/>
                 </td>
             </tr>
         </table>
@@ -60,10 +64,10 @@
         <table>
             <tr>
                 <td>
-                    Choose a yesterday returned car:
+                    <fmt:message key="damageForm"/>
                 </td>
                 <td>
-                    Type in a fine (if it's damaged):
+                    <fmt:message key="typeFine"/>
                 </td>
                 <td></td>
             </tr>
@@ -79,10 +83,10 @@
                     </select>
                 </td>
                 <td>
-                    <input type="number" name="number" min="100" name="fine"/>
+                    <input type="number" name="number" min="100"/>
                 </td>
                 <td>
-                    <input type="submit" value="Register the car/Fine the customer">
+                    <input type="submit" value="<fmt:message key="registerOrFine"/>" />
                 </td>
             </tr>
         </table>

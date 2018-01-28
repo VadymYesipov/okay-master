@@ -1,5 +1,6 @@
-package servlets;
+package ua.khpi.yesipov.project.servlets;
 
+import org.apache.log4j.Logger;
 import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.dao.RoleDAO;
@@ -25,11 +26,14 @@ public class SignUp extends HttpServlet {
     private PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
     private final List<Role> roles = roleDAO.selectRoles();
     private List<Person> personList = new ArrayList<Person>();
+    private static final Logger log = Logger.getLogger(SignIn.class);
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("Starting SignUp");
+        log.debug("Starting signing up");
+
         HttpSession session = req.getSession();
+        req.setCharacterEncoding("UTF-8");
 
         Person person = new Person();
 
@@ -55,9 +59,11 @@ public class SignUp extends HttpServlet {
         Person manager = personDAO.findManager(login, password);
 
         if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
-            System.out.println("-------------------error---------------------------");
+            log.debug("Redirect ro sign up error");
             resp.sendRedirect("pages/signUpError.jsp");
         } else {
+            log.debug("Redirect to sign in");
+
             Map<String, List> sessionMap = (Map<String, List>) req.getServletContext().getAttribute("sessionMap");
             if (sessionMap == null) {
                 sessionMap = new HashMap<String, List>();
