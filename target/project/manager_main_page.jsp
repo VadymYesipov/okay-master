@@ -21,7 +21,7 @@
     <h1><fmt:message key="welcome"/></h1>
     <br/>
 </header>
-<jsp:include page="language_part.jsp"></jsp:include>
+<jsp:include page="pages/language_part.jsp"></jsp:include>
 <div align="center">
     <br/>
     <br/>

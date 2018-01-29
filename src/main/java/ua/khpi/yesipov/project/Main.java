@@ -24,5 +24,8 @@ public class Main {
         } catch (ParseException e) {
             e.printStackTrace();
         }*/
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.next();
+        String regex = "[a-zA-Zа-яА-ЯёЁ]";
     }
 }

@@ -9,14 +9,9 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<div class="sidenav" align="center">
+<div align="center">
     <c:out value="${language}"/>
-    <%--    <c:if test="${not empty language}">
-          <c:set var="language" value="${param.language}" scope="session" />
-      </c:if>
-   <c:if test="${empty language}">
-          <c:set var="language" value="ru" scope="session"/>
-      </c:if>--%>
+
     <fmt:setLocale value="${language}" />
     <fmt:setBundle basename="res" />
 

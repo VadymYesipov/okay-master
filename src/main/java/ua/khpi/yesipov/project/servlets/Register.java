@@ -1,9 +1,10 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.dao.RoleDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLPersonDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLRoleDAO;
 import ua.khpi.yesipov.project.persistence.domain.Person;
 import ua.khpi.yesipov.project.persistence.domain.Role;
 
@@ -11,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,10 +27,9 @@ public class Register extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Register is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-
-        PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
-        RoleDAO roleDAO = mySqlDAOFactory.getRoleDAO();
+        PersonDAO personDAO = new MySQLPersonDAO();
+        RoleDAO roleDAO = new MySQLRoleDAO();
+        HttpSession session = req.getSession();
 
         List<Role> roles = roleDAO.selectRoles();
 
@@ -42,7 +43,8 @@ public class Register extends HttpServlet {
 
         if (oldPerson != null) {
             log.debug("Redirect to register manager error");
-            resp.sendRedirect("pages/registerManagerError.jsp");
+            session.setAttribute("error", "Somebody has gotten registered by this login");
+            resp.sendRedirect("pages/error.jsp");
             return;
         } else {
             Person person = new Person();

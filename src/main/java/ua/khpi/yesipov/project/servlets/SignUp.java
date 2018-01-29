@@ -1,9 +1,10 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.dao.RoleDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLPersonDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLRoleDAO;
 import ua.khpi.yesipov.project.persistence.domain.Person;
 import ua.khpi.yesipov.project.persistence.domain.Role;
 
@@ -21,11 +22,9 @@ import java.util.Map;
 
 public class SignUp extends HttpServlet {
 
-    private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-    private RoleDAO roleDAO = mySqlDAOFactory.getRoleDAO();
-    private PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
+    private RoleDAO roleDAO = new MySQLRoleDAO();
+    private PersonDAO personDAO = new MySQLPersonDAO();
     private final List<Role> roles = roleDAO.selectRoles();
-    private List<Person> personList = new ArrayList<Person>();
     private static final Logger log = Logger.getLogger(SignIn.class);
 
     @Override
@@ -58,19 +57,19 @@ public class SignUp extends HttpServlet {
 
         if (oldPerson != null) {
             log.debug("Redirect ro sign up error");
-            resp.sendRedirect("pages/signUpError.jsp");
+            session.setAttribute("error", "Somebody has gotten registered by this login");
+            resp.sendRedirect("pages/error.jsp");
         } else {
             log.debug("Redirect to sign in");
 
             Map<String, List> sessionMap = (Map<String, List>) req.getServletContext().getAttribute("sessionMap");
             if (sessionMap == null) {
-                sessionMap = new HashMap<String, List>();
+                sessionMap = new HashMap<>();
             }
             sessionMap.put(login, new ArrayList<String>());
             req.getServletContext().setAttribute("sessionMap", sessionMap);
 
             personDAO.insertPerson(person);
-            personList.add(person);
             session.setAttribute("person", person);
             resp.sendRedirect("signIn.jsp");
         }

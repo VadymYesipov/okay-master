@@ -1,8 +1,8 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLPersonDAO;
 import ua.khpi.yesipov.project.persistence.domain.Person;
 
 import javax.servlet.ServletException;
@@ -20,9 +20,7 @@ public class BlockUnblock extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("BlockUnblock is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-
-        PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
+        PersonDAO personDAO = new MySQLPersonDAO();
         List<Person> persons = personDAO.selectPersons();
 
         String parameter = req.getParameter("choiceOfCustomers");

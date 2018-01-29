@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="ua.khpi.yesipov.project.persistence.MySqlDAOFactory" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.BrandDAO" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.domain.Brand" %>
 <%@ page import="java.util.List" %>
@@ -9,7 +8,11 @@
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.CarDAO" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.domain.Car" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.domain.Person" %>
-<%@ page import="ua.khpi.yesipov.project.persistence.dao.PersonDAO" %><%--
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.PersonDAO" %>
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.impl.MySQLBrandDAO" %>
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.impl.MySQLQualityDAO" %>
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO" %>
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.impl.MySQLPersonDAO" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 021 21.01.18
@@ -29,14 +32,13 @@
     <h1><fmt:message key="welcome"/></h1>
     <br/>
 </header>
-<jsp:include page="language_part.jsp"></jsp:include>
+<jsp:include page="pages/language_part.jsp"></jsp:include>
 <div align="center">
     <div>
         <form name="addForm" action="/carAdder" method="post">
             <fieldset>
                 <br/>
-                <%! private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory(); %>
-                <%! private BrandDAO brandDAO = mySqlDAOFactory.getBrandDAO(); %>
+                <%! private BrandDAO brandDAO = new MySQLBrandDAO(); %>
                 <%! private List<Brand> brands  = (List<Brand>) brandDAO.select(); %>
                 <table>
                     <tr>
@@ -50,9 +52,9 @@
                         </td>
                         <td>
                             <fmt:message key="model"/>
-                            <input type="text" name="model" placeholder="<fmt:message key="typeModel"/> " required/>
+                            <input type="text" name="model" placeholder="<fmt:message key="typeModel"/>" required/>
                         </td>
-                        <%! private QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO(); %>
+                        <%! private QualityDAO qualityDAO = new MySQLQualityDAO(); %>
                         <%! private List<Quality> qualities  = (List<Quality>) qualityDAO.select(); %>
                         <td>
                             <fmt:message key="quality"/>
@@ -64,7 +66,7 @@
                         </td>
                         <td>
                             <fmt:message key="price"/>
-                            <input type="text" name="price" placeholder="<fmt:message key="typePrice"/> " required/>
+                            <input type="number" name="price" placeholder="<fmt:message key="typePrice"/>" min="10" required/>
                         </td>
                     </tr>
                 </table>
@@ -112,7 +114,7 @@
                     </td>
                     <td>
                         <fmt:message key="price"/>
-                        <input type="text" name="priceChange" placeholder="<fmt:message key="typePrice"/>"/>
+                        <input type="number" name="priceChange" min="10" placeholder="<fmt:message key="typePrice"/>"/>
                     </td>
                 </tr>
             </table>
@@ -124,7 +126,7 @@
     <div style="margin-top: 50px">
         <br/>
         <form name="deleteForm" action="/carDeleter" method="post">
-            <%! private CarDAO carDAO = mySqlDAOFactory.getCarDAO(); %>
+            <%! private CarDAO carDAO = new MySQLCarDAO(); %>
             <table>
                 <tr>
                     <td>
@@ -146,7 +148,7 @@
     <div style="margin-top: 50px">
         <br/>
         <form name="blockUnblockForm" action="/blockUnblock">
-            <%! private PersonDAO personDAO = mySqlDAOFactory.getPersonDAO(); %>
+            <%! private PersonDAO personDAO = new MySQLPersonDAO(); %>
             <table>
                 <tr>
                     <td>
@@ -193,15 +195,15 @@
                     <tr>
                         <td>
                             <fmt:message key="firstName"/>
-                            <input type="text" name="firstNameField" placeholder="<fmt:message key="typeFirstName"/>" required>
+                            <input type="text" name="firstNameField" placeholder="<fmt:message key="typeFirstName"/>" pattern="^[A-ZА-Я][a-zа-яё]+$" required>
                         </td>
                         <td>
                             <fmt:message key="middleName"/>
-                            <input type="text" name="middleField" placeholder="<fmt:message key="typeMiddleName"/>" required>
+                            <input type="text" name="middleField" placeholder="<fmt:message key="typeMiddleName"/>" pattern="^[A-ZА-Я][_a-zа-яё]+$" required>
                         </td>
                         <td>
                             <fmt:message key="lastName"/>
-                            <input type="text" name="lastNameField" placeholder="<fmt:message key="typeLastName"/>" required>
+                            <input type="text" name="lastNameField" placeholder="<fmt:message key="typeLastName"/>" pattern="^[A-ZА-ЯЁ][_a-zA-Zа-яА-ЯёЁ]+$"required>
                         </td>
                         <td>
                             <fmt:message key="birthday"/>
@@ -209,11 +211,12 @@
                         </td>
                         <td>
                             <fmt:message key="login"/>
-                            <input type="text" name="loginField" placeholder="<fmt:message key="typeLogin"/>" required>
+                            <input type="text" name="loginField" placeholder="<fmt:message key="typeLogin"/>" pattern="[_a-zA-Zа-яА-ЯёЁ]+$" required>
                         </td>
                         <td>
                             <fmt:message key="password"/>
-                            <input type="password" name="passwordField" placeholder="<fmt:message key="typePassword"/>" required>
+                            <input type="password" name="passwordField" placeholder="<fmt:message key="typePassword"/>" required
+                                   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                         </td>
                     </tr>
                 </table>

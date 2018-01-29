@@ -1,6 +1,7 @@
 package ua.khpi.yesipov.project.persistence.dao.impl;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import ua.khpi.yesipov.project.persistence.dao.Creatable;
 import ua.khpi.yesipov.project.persistence.dao.PersonDAO;
 import ua.khpi.yesipov.project.persistence.domain.Person;
 import ua.khpi.yesipov.project.persistence.domain.Role;
@@ -12,21 +13,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLPersonDAO implements PersonDAO {
-
-    private MysqlDataSource mysqlDataSource;
-
-    private Connection connection;
-    private PreparedStatement preparedStatement;
-    private ResultSet resultSet;
-
-    public MySQLPersonDAO(Connection connection) {
-        this.connection = connection;
-    }
+public class MySQLPersonDAO implements PersonDAO, Creatable {
 
     public int insertPerson(Person person) {
-        try {
-            preparedStatement = connection.prepareStatement(
+        try (Connection connection = createConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(
                     "INSERT INTO person (id, role_id, first_name, middle_name, last_name, birthday, login, password, isBlocked) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setInt(1, person.getId());
@@ -54,25 +45,25 @@ public class MySQLPersonDAO implements PersonDAO {
     }
 
     public Person findPerson(String login) {
-        try {
-            preparedStatement = connection.prepareStatement("SELECT person.id, role.id, role.role, first_name, middle_name, last_name, birthday, login, password " +
+        try (Connection connection = createConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT person.id, role.id, role.role, first_name, middle_name, last_name, birthday, login, password " +
                     "FROM orders.person person  " +
                     "LEFT JOIN orders.role role on person.role_id=role.id " +
                     "WHERE login=? and isBlocked=0");
 
             preparedStatement.setString(1, login);
 
-            resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             Person person = new Person();
 
-            method(person);
+            method(person, resultSet);
 
             resultSet.close();
             preparedStatement.close();
             //connection.close();
 
-            return person;
+            return person.getRole() == null ? null : person;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -80,8 +71,8 @@ public class MySQLPersonDAO implements PersonDAO {
     }
 
     public Person findPerson(String login, String password) {
-        try {
-            preparedStatement = connection.prepareStatement("SELECT person.id, role.id, role.role, first_name, middle_name, last_name, birthday, login, password " +
+        try (Connection connection = createConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT person.id, role.id, role.role, first_name, middle_name, last_name, birthday, login, password " +
                     "FROM orders.person person  " +
                     "LEFT JOIN orders.role role on person.role_id=role.id " +
                     "WHERE login=? and password=? and isBlocked=0");
@@ -89,24 +80,24 @@ public class MySQLPersonDAO implements PersonDAO {
             preparedStatement.setString(1, login);
             preparedStatement.setString(2, password);
 
-            resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             Person person = new Person();
 
-            method(person);
+            method(person, resultSet);
 
             resultSet.close();
             preparedStatement.close();
             //connection.close();
 
-            return person;
+            return person.getRole() == null ? null : person;
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    private void method(Person person) throws SQLException {
+    private void method(Person person, ResultSet resultSet) throws SQLException {
         if (resultSet.next()) {
             person.setId(resultSet.getInt(1));
 
@@ -126,8 +117,8 @@ public class MySQLPersonDAO implements PersonDAO {
     }
 
     public boolean updatePerson(Person person) {
-        try {
-            preparedStatement = connection.prepareStatement("UPDATE orders.person SET isBlocked=" + person.getIsBlocked()
+        try (Connection connection = createConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE orders.person SET isBlocked=" + person.getIsBlocked()
                     + " WHERE id=" + person.getId());
             preparedStatement.executeUpdate();
             return true;
@@ -138,8 +129,8 @@ public class MySQLPersonDAO implements PersonDAO {
     }
 
     public int selectCount() {
-        try {
-            preparedStatement = connection.prepareStatement("SELECT COUNT(*) as total FROM orders.person;");
+        try (Connection connection = createConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) as total FROM orders.person;");
             ResultSet resultSet = preparedStatement.executeQuery();
 
             int count = 0;
@@ -159,15 +150,15 @@ public class MySQLPersonDAO implements PersonDAO {
     }
 
     public List<Person> selectPersons() {
-        try {
-            preparedStatement = connection.prepareStatement("SELECT " +
+        try (Connection connection = createConnection()) {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT " +
                     "person.id, role.id as role_id, role.role, first_name, middle_name, last_name, birthday, login, password, isBlocked\n" +
                     "FROM orders.person person\n" +
                     "LEFT JOIN orders.role role on person.role_id=role.id\n" +
                     "WHERE role_id=2;");
 
 
-            resultSet = preparedStatement.executeQuery();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             List<Person> persons = new ArrayList<Person>();
 

@@ -1,5 +1,6 @@
 package ua.khpi.yesipov.project.persistence.dao.impl;
 
+import ua.khpi.yesipov.project.persistence.dao.Creatable;
 import ua.khpi.yesipov.project.persistence.dao.RoleDAO;
 import ua.khpi.yesipov.project.persistence.domain.Role;
 
@@ -10,14 +11,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLRoleDAO implements RoleDAO {
+public class MySQLRoleDAO implements RoleDAO, Creatable {
 
-    private Connection connection;
-    private Statement statement;
-
-    public MySQLRoleDAO(Connection connection) {
-        this.connection = connection;
-    }
+    private static final String SELECT = "SELECT * FROM orders.role;";
 
     public int insertRole(Role role) {
         return 0;
@@ -37,9 +33,9 @@ public class MySQLRoleDAO implements RoleDAO {
 
     public List<Role> selectRoles() {
         List<Role> roles = new ArrayList<Role>();
-        try {
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM orders.role;");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SELECT);
             while (resultSet.next()) {
                 Role role = new Role();
                 role.setId(resultSet.getInt(1));

@@ -1,8 +1,8 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 
 import javax.servlet.ServletException;
@@ -20,9 +20,7 @@ public class CarDeleter extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("CarDeleter is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
+        CarDAO carDAO = new MySQLCarDAO();
         List<Car> cars = carDAO.selectAllCars();
 
         String parameter = req.getParameter("choiceOfCars");

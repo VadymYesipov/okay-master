@@ -2,9 +2,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="java.util.List" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.OrderDAO" %>
-<%@ page import="ua.khpi.yesipov.project.persistence.MySqlDAOFactory" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.domain.*" %>
-<%@ page import="java.util.Map" %><%--
+<%@ page import="java.util.Map" %>
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.impl.MySQLOrderDAO" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 017 17.01.18
@@ -24,7 +24,7 @@
     <h1><fmt:message key="welcome"/> </h1>
     <br/>
 </header>
-<jsp:include page="language_part.jsp"></jsp:include>
+<jsp:include page="pages/language_part.jsp"></jsp:include>
 <br/>
 <br/>
 <div align="center">
@@ -196,8 +196,7 @@
         <h1><fmt:message key="approvedOrders"/></h1>
         <br/>
         <br/>
-        <%! private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory(); %>
-        <%! private OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO(); %>
+        <%! private OrderDAO orderDAO = new MySQLOrderDAO(); %>
         <%! private List<Order> orders; %>
         <% Person customer = (Person) session.getAttribute("person");
             orders = orderDAO.selectOrders(customer.getId()); %>

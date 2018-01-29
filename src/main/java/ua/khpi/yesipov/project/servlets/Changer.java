@@ -1,10 +1,12 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.BrandDAO;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.QualityDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLBrandDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLQualityDAO;
 import ua.khpi.yesipov.project.persistence.domain.Brand;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Quality;
@@ -25,12 +27,9 @@ public class Changer extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Changer is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
-        BrandDAO brandDAO = mySqlDAOFactory.getBrandDAO();
-        QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO();
-        List<Car> cars = carDAO.selectAllCars();
+        CarDAO carDAO = new MySQLCarDAO();
+        BrandDAO brandDAO = new MySQLBrandDAO();
+        QualityDAO qualityDAO = new MySQLQualityDAO();
 
         List<Brand> brands = brandDAO.select();
         List<Quality> qualities = qualityDAO.select();
@@ -48,7 +47,8 @@ public class Changer extends HttpServlet {
 
         if (price.equals("") && modelParam.equals("") && brandParam.equals("") && qualityParam.equals("")) {
             log.debug("Redirect to edit error");
-            resp.sendRedirect("pages/editError.jsp");
+            session.setAttribute("error", "Edit at least one field.");
+            resp.sendRedirect("pages/error.jsp");
             return;
         }
 
@@ -67,13 +67,8 @@ public class Changer extends HttpServlet {
 
         price = price.equals("") ? parameters[9].substring(0, parameters[9].length() - 1) : price;
 
-        try {
-            priceParam = Double.valueOf(price);
-        } catch (NumberFormatException e) {
-            log.debug("Redirect to add car error");
-            resp.sendRedirect("pages/addCarError.jsp");
-            return;
-        }
+
+        priceParam = Double.valueOf(price);
 
         Car car = new Car();
         car.setId(id);

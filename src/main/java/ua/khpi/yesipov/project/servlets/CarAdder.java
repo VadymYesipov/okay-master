@@ -1,10 +1,12 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.BrandDAO;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.QualityDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLBrandDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLQualityDAO;
 import ua.khpi.yesipov.project.persistence.domain.Brand;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Quality;
@@ -23,13 +25,11 @@ public class CarAdder extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        log.debug("CarAdder is starting");
+        log.debug("CarAdder is starting");;
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
-        BrandDAO brandDAO = mySqlDAOFactory.getBrandDAO();
-        QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO();
+        CarDAO carDAO = new MySQLCarDAO();
+        BrandDAO brandDAO = new MySQLBrandDAO();
+        QualityDAO qualityDAO = new MySQLQualityDAO();
 
         List<Brand> brands = brandDAO.select();
         List<Quality> qualities = qualityDAO.select();
@@ -39,14 +39,7 @@ public class CarAdder extends HttpServlet {
         String brandParam = req.getParameter("selectBrands");
         String modelParam = req.getParameter("model");
         String qualityParam = req.getParameter("selectQualities");
-        Double priceParam = 0D;
-        try {
-            priceParam = Double.valueOf(req.getParameter("price"));
-        } catch (NumberFormatException e) {
-            log.debug("Redirect to add car error");
-            resp.sendRedirect("pages/addCarError.jsp");
-            return;
-        }
+        Double priceParam = Double.valueOf(req.getParameter("price"));
 
         Brand brand = null;
         for (Brand temp : brands) {

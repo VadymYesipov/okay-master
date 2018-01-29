@@ -1,9 +1,10 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLDriverDAO;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Driver;
 
@@ -28,9 +29,8 @@ public class PriceGetter extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("PriceGetter is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
-        DriverDAO driverDAO = mySqlDAOFactory.getDriverDAO();
+        CarDAO carDAO = new MySQLCarDAO();
+        DriverDAO driverDAO = new MySQLDriverDAO();
 
         HttpSession session = req.getSession();
         List<String> strings = new ArrayList<String>();

@@ -16,30 +16,28 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
 </head>
-<body style="background-color: ghostwhite">
+<body>
 <fmt:setLocale value="${language}" />
 <fmt:setBundle basename="res" />
-<header style="text-align: center;">
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+<header class="signInHeader">
     <h1><fmt:message key="welcome"/></h1>
-    <br/><br/>
 </header>
 <jsp:include page="pages/language_part.jsp"></jsp:include>
-<div style="text-align: center;">
-    <form style="align-content: center; padding-top: 100px; padding-left: 200px; padding-right: 200px; padding-bottom: 100px;" action="/signIn" method="post">
-        <fieldset style="align-content: center; margin-left: 500px; margin-right: 500px;">
+<div>
+    <form class="signInForm" action="/signIn" method="post">
+        <fieldset class="signInFieldSet">
             <legend align="center"><fmt:message key="legendSignIn"/></legend>
-            <fmt:message key="login"/> <br /><input type='text' name='login' required /><p/>
-            <fmt:message key="password"/> <br /> <input type='password' name='password' required/><p/>
-            <br/><input style="background-color: chartreuse" type="submit" name="signIn" value="<fmt:message key="SignIn"/>" /> <p/>
+            <fmt:message key="login"/> <br /><input type='text' name='login' required pattern="[_a-zA-Zа-яА-ЯёЁ]+$" /><p/>
+            <fmt:message key="password"/>
+            <br /> <input type='password' name='password' required
+                          pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" /><p/>
+            <br/><input class="submit" type="submit" name="signIn" value="<fmt:message key="SignIn"/>" /> <p/>
             <br/>
             <fmt:message key="tip"/>
             <br/>
-            <a href="pages/signUp.jsp" target="_top"><fmt:message key="SignUp"/></a>
+            <a href="signUp.jsp" target="_top"><fmt:message key="SignUp"/></a>
         </fieldset>
     </form>
 </div>

@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Rent.java" line="41" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Rent.java" line="43" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dd4d9a6-0b34-4d95-b643-8a45e4fb5fbf" name="Default" comment="" />
@@ -20,112 +20,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="customer_main_page.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer_main_page.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="202" column="64" lean-forward="false" selection-start-line="202" selection-start-column="64" selection-end-line="202" selection-end-column="64" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SignIn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignIn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2329">
-              <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AccessFilter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AccessFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="47" column="54" lean-forward="false" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
-              <folding>
-                <element signature="method#destroy#0;class#AccessFilter#0" expanded="false" />
-                <element signature="method#init#0;class#AccessFilter#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signUp.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/signUp.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="55" column="119" lean-forward="false" selection-start-line="55" selection-start-column="119" selection-end-line="55" selection-end-column="119" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signIn.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/signIn.jsp">
+      <file leaf-file-name="Creatable.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/Creatable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdminFilter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AdminFilter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MySQLPersonDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLPersonDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+              <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
               <folding>
-                <element signature="method#insertPerson#0;class#MySQLPersonDAO#0" expanded="false" />
-                <element signature="method#method#0;class#MySQLPersonDAO#0" expanded="false" />
-                <element signature="method#updatePerson#0;class#MySQLPersonDAO#0" expanded="false" />
-                <element signature="method#selectCount#0;class#MySQLPersonDAO#0" expanded="false" />
-                <element signature="method#selectPersons#0;class#MySQLPersonDAO#0" expanded="false" />
-                <marker date="1517188241408" expanded="true" signature="2098:2382" ph="SELECT perso... person" />
-                <marker date="1517188241408" expanded="true" signature="2945:3244" ph="SELECT perso... person" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/PersonDAO.java">
+      <file leaf-file-name="admin_main_page.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/admin_main_page.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+            <state relative-caret-position="543">
+              <caret line="68" column="47" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignUp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignUp.java">
+      <file leaf-file-name="manager_main_page.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/manager_main_page.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="74" column="31" lean-forward="false" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+            <state relative-caret-position="594">
+              <caret line="84" column="53" lean-forward="false" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -138,7 +59,9 @@
       <list>
         <option value="HTML File" />
         <option value="Jsp File" />
+        <option value="CSS File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -147,14 +70,18 @@
       <find>showCars</find>
       <find>Sys</find>
       <find>priceCar</find>
-      <find>%</find>
       <find>\20</find>
       <find>Access</find>
+      <find>%</find>
+      <find>signup</find>
+      <find>mysqldao</find>
+      <find>error</find>
+      <find>number</find>
     </findStrings>
     <replaceStrings>
       <replace />
-      <replace>\</replace>
       <replace>Admin</replace>
+      <replace>\</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -168,32 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLRoleDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/addCarError.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/registerManagerError.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/editError.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/BusinessLogic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/CarDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/CancelServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager_main_page.html" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/OrderDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLOrderDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLCarDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/MySqlDAOFactory.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/language_part.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager_main_page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/res.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/admin_main_page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/signIn.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer_main_page.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/res_en.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/res_ru.properties" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/log4j.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/listners/ContextListner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/listners/ContextListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/servlets/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/SignUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/Selector.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/PriceGetter.java" />
@@ -206,19 +107,45 @@
         <option value="$PROJECT_DIR$/src/main/java/servlets/CarAdder.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/CarDeleter.java" />
         <option value="$PROJECT_DIR$/src/main/java/servlets/BlockUnblock.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/BlockUnblock.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/signUp.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Register.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/PersonDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLPersonDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/CustomerFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/ManagerFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AdminFilter.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/res_en.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/signUp.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/res_ru.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/language_part.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/style/style.css" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/Main.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/signIn.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/signUp.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/MySqlDAOFactory.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/Creatable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLBrandDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLQualityDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLRoleDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLPersonDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLOrderDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLDriverDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLCarDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/BlockUnblock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CancelServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CarAdder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CarDeleter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/PriceGetter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Punisher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Selector.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignIn.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/customer_main_page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/manager_main_page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Register.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Rent.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/admin_main_page.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Changer.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignUp.java" />
         <option value="$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AccessFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/error.jsp" />
       </list>
     </option>
   </component>
@@ -444,6 +371,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="style" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="okay-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -462,10 +397,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -476,6 +412,7 @@
       <recent name="C:\Users\User\Downloads\okay-master\okay-master\src\main\java\ua\khpi\yesipov\project\persistence\dao\impl" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Downloads\okay-master\okay-master\src\main\java\ua\khpi\yesipov\project\persistence\domain" />
       <recent name="C:\Users\User\Downloads\okay-master\okay-master\src\main\webapp" />
       <recent name="C:\Users\User\Downloads\okay-master\okay-master\src\main\webapp\pages" />
       <recent name="C:\Users\User\Downloads\okay-master\okay-master\src\main\webapp\WEB-INF\other" />
@@ -734,12 +671,12 @@
       <workItem from="1517168526189" duration="6736000" />
       <workItem from="1517179924546" duration="78000" />
       <workItem from="1517180826819" duration="9270000" />
-      <workItem from="1517211243173" duration="4491000" />
+      <workItem from="1517211243173" duration="21833000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="271305000" />
+    <option name="totallyTimeSpent" value="288647000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -755,38 +692,38 @@
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32873806" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3552492" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2640509" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32873806" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34464476" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20520833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32979852" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -797,68 +734,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLDriverDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/CarDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CancelServlet.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manager_main_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="60" column="49" lean-forward="false" selection-start-line="60" selection-start-column="49" selection-end-line="60" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/OrderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="41" lean-forward="false" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLRoleDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="49" column="30" lean-forward="false" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql_scripts/brand.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="19" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql_scripts/driver.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql_scripts/car.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/domain/Car.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -873,69 +753,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/language_part.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="30" lean-forward="false" selection-start-line="25" selection-start-column="30" selection-end-line="25" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLOrderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="158" column="83" lean-forward="false" selection-start-line="158" selection-start-column="83" selection-end-line="158" selection-end-column="83" />
-          <folding>
-            <element signature="method#insertOrder#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#deleteOrder#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#updateOrder#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#selectAllOrders#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#selectOrders#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#selectPastOrders#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#selectFutureOrders#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#select#0;class#MySQLOrderDAO#0" expanded="false" />
-            <element signature="method#selectCount#0;class#MySQLOrderDAO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer_main_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/res.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/res_en.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="52" column="8" lean-forward="false" selection-start-line="52" selection-start-column="8" selection-end-line="52" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/res_ru.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="96" lean-forward="false" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/log4j.properties">
@@ -955,103 +772,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Selector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="85" column="42" lean-forward="false" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/PriceGetter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="28" column="4" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Rent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="70" column="42" lean-forward="false" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
-          <folding>
-            <element signature="method#removeAttributes#0;class#Rent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/servlets/UserPage.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Punisher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="84" column="42" lean-forward="false" selection-start-line="84" selection-start-column="42" selection-end-line="84" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Changer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="71" column="43" lean-forward="false" selection-start-line="71" selection-start-column="43" selection-end-line="71" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/LocaleServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="36" lean-forward="false" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CancelServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="75" column="42" lean-forward="false" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CarAdder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="77" column="42" lean-forward="false" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/BlockUnblock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="39" column="39" lean-forward="false" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/admin_main_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="174" column="20" lean-forward="false" selection-start-line="174" selection-start-column="20" selection-end-line="187" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manager_main_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="16" lean-forward="false" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/MySqlDAOFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" column="40" lean-forward="false" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -1064,23 +789,207 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/domain/Brand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/PersonDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/CustomerFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/ManagerFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AdminFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/sign_in.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="48" lean-forward="false" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/res_en.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/res_ru.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="35" column="73" lean-forward="false" selection-start-line="35" selection-start-column="73" selection-end-line="35" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/res.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="20" column="28" lean-forward="false" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer_main_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1147">
+          <caret line="19" column="16" lean-forward="false" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/style/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="23" lean-forward="false" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-391">
+          <caret line="67" column="22" lean-forward="false" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/editError.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" column="40" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/MySqlDAOFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLBrandDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="32" lean-forward="false" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="646">
+          <caret line="56" column="5" lean-forward="false" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
           <folding>
-            <element signature="method#MySQLBrandDAO#1;class#MySQLBrandDAO#0" expanded="false" />
-            <marker date="1516384363192" expanded="true" signature="1721:1747" ph="SELECT * FRO... brand" />
+            <marker date="1517251527609" expanded="true" signature="545:571" ph="SELECT * FRO... brand" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLRoleDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="33" column="36" lean-forward="false" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="method#selectRoles#0;class#MySQLRoleDAO#0" expanded="false" />
+            <marker date="1517251527719" expanded="true" signature="491:516" ph="SELECT * FRO... role" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLPersonDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="151" column="40" lean-forward="false" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
+          <folding>
+            <element signature="method#insertPerson#0;class#MySQLPersonDAO#0" expanded="false" />
+            <element signature="method#findPerson#0;class#MySQLPersonDAO#0" expanded="false" />
+            <element signature="method#findPerson#1;class#MySQLPersonDAO#0" expanded="false" />
+            <element signature="method#method#0;class#MySQLPersonDAO#0" expanded="false" />
+            <element signature="method#updatePerson#0;class#MySQLPersonDAO#0" expanded="false" />
+            <element signature="method#selectCount#0;class#MySQLPersonDAO#0" expanded="false" />
+            <element signature="method#selectPersons#0;class#MySQLPersonDAO#0" expanded="false" />
+            <marker date="1517251527734" expanded="true" signature="779:953" ph="INSERT INTO person... " />
+            <marker date="1517251527734" expanded="true" signature="2033:2317" ph="SELECT perso... person" />
+            <marker date="1517251527734" expanded="true" signature="2998:3297" ph="SELECT perso... person" />
+            <marker date="1517251527734" expanded="true" signature="4699:4793" ph="UPDATE orders.person... " />
+            <marker date="1517251527734" expanded="true" signature="5162:5205" ph="SELECT COUNT... person" />
+            <marker date="1517251527734" expanded="true" signature="5822:6141" ph="SELECT perso... person" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLQualityDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+          <folding>
+            <marker date="1517251527765" expanded="true" signature="614:642" ph="SELECT * FRO... quality" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLDriverDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
+          <folding>
+            <element signature="method#updateDriver#0;class#MySQLDriverDAO#0" expanded="false" />
+            <element signature="method#selectDrivers#0;class#MySQLDriverDAO#0" expanded="false" />
+            <marker date="1517251527672" expanded="true" signature="554:605" ph="SELECT * FRO... driver" />
+            <marker date="1517251527672" expanded="true" signature="1038:1115" ph="UPDATE orders.driver... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLCarDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="42" column="12" lean-forward="false" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+        <state relative-caret-position="366">
+          <caret line="245" column="33" lean-forward="false" selection-start-line="245" selection-start-column="33" selection-end-line="245" selection-end-column="33" />
           <folding>
-            <element signature="method#MySQLCarDAO#1;class#MySQLCarDAO#0" expanded="false" />
+            <element signature="method#insertCar#0;class#MySQLCarDAO#0" expanded="false" />
             <element signature="method#deleteCar#0;class#MySQLCarDAO#0" expanded="false" />
             <element signature="method#updateDamaged#0;class#MySQLCarDAO#0" expanded="false" />
             <element signature="method#updateCar#0;class#MySQLCarDAO#0" expanded="false" />
@@ -1098,146 +1007,226 @@
             <element signature="method#selectCount#0;class#MySQLCarDAO#0" expanded="false" />
             <element signature="method#isUniqueQuality#0;class#MySQLCarDAO#0" expanded="false" />
             <element signature="method#isUniqueBrand#0;class#MySQLCarDAO#0" expanded="false" />
+            <marker date="1517251527828" expanded="true" signature="572:629" ph="UPDATE orders.car... " />
+            <marker date="1517251527828" expanded="true" signature="678:710" ph="DELETE FROM orders.car... " />
+            <marker date="1517251527828" expanded="true" signature="759:833" ph="INSERT INTO orders.car... " />
+            <marker date="1517251527828" expanded="true" signature="759:859" ph="INSERT INTO orders.car... " />
+            <marker date="1517251527828" expanded="true" signature="904:1195" ph="SELECT car.i... car" />
+            <marker date="1517251527828" expanded="true" signature="1259:1405" ph="SELECT brand... car" />
+            <marker date="1517251527828" expanded="true" signature="1471:1646" ph="SELECT quali... car" />
+            <marker date="1517251527828" expanded="true" signature="1698:1737" ph="SELECT MAX(i... car" />
+            <marker date="1517251527828" expanded="true" signature="3601:3689" ph="UPDATE orders.car... " />
+            <marker date="1517251527828" expanded="true" signature="4067:4312" ph="UPDATE orders.car... " />
+            <marker date="1517251527828" expanded="true" signature="8776:8846" ph="SELECT car.p... car" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLOrderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="141" column="5" lean-forward="false" selection-start-line="141" selection-start-column="5" selection-end-line="141" selection-end-column="5" />
+          <folding>
+            <element signature="method#insertOrder#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#deleteOrder#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#updateOrder#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#selectAllOrders#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#selectOrders#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#selectPastOrders#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="e#6467#6474#0" expanded="true" />
+            <element signature="method#selectFutureOrders#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#select#0;class#MySQLOrderDAO#0" expanded="false" />
+            <element signature="method#selectCount#0;class#MySQLOrderDAO#0" expanded="false" />
+            <marker date="1517251527640" expanded="true" signature="462:592" ph="INSERT INTO orders.order_list... " />
+            <marker date="1517251527640" expanded="true" signature="643:683" ph="DELETE FROM orders.order_list... " />
+            <marker date="1517251527640" expanded="true" signature="740:1443" ph="SELECT order... order_list" />
+            <marker date="1517251527640" expanded="true" signature="1489:2142" ph="SELECT order... order_list" />
+            <marker date="1517251527640" expanded="true" signature="2194:2239" ph="SELECT MAX(*... order_list" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/signIn.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/signUp.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="787">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/language_part.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="false" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/BlockUnblock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CarDeleter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="38" column="42" lean-forward="false" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/domain/Brand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="5" lean-forward="false" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Register.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="42" column="29" lean-forward="false" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/PersonDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="14" column="58" lean-forward="false" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+          <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/impl/MySQLPersonDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/LocaleServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
-          <folding>
-            <element signature="method#insertPerson#0;class#MySQLPersonDAO#0" expanded="false" />
-            <element signature="method#method#0;class#MySQLPersonDAO#0" expanded="false" />
-            <element signature="method#updatePerson#0;class#MySQLPersonDAO#0" expanded="false" />
-            <element signature="method#selectCount#0;class#MySQLPersonDAO#0" expanded="false" />
-            <element signature="method#selectPersons#0;class#MySQLPersonDAO#0" expanded="false" />
-            <marker date="1517188241408" expanded="true" signature="2098:2382" ph="SELECT perso... person" />
-            <marker date="1517188241408" expanded="true" signature="2945:3244" ph="SELECT perso... person" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/CustomerFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="47" lean-forward="false" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#init#0;class#CustomerFilter#0" expanded="false" />
-            <element signature="method#destroy#0;class#CustomerFilter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/ManagerFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#init#0;class#ManagerFilter#0" expanded="false" />
-            <element signature="method#destroy#0;class#ManagerFilter#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer_main_page.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="202" column="64" lean-forward="false" selection-start-line="202" selection-start-column="64" selection-end-line="202" selection-end-column="64" />
+        <state relative-caret-position="374">
+          <caret line="31" column="36" lean-forward="false" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/PriceGetter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2329">
-          <caret line="137" column="22" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+        <state relative-caret-position="-12">
+          <caret line="32" column="51" lean-forward="false" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Punisher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Selector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="898">
+          <caret line="73" column="58" lean-forward="false" selection-start-line="73" selection-start-column="58" selection-end-line="73" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
+        <state relative-caret-position="11">
+          <caret line="16" column="55" lean-forward="false" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AdminFilter.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Register.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="23" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
+        <state relative-caret-position="288">
+          <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="90" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/signIn.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Rent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="42" column="53" lean-forward="false" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#removeAttributes#0;class#Rent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/customer_main_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="48" column="52" lean-forward="false" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/persistence/dao/Creatable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="41" column="33" lean-forward="false" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+          <caret line="20" column="24" lean-forward="false" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/Changer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="49" column="12" lean-forward="true" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/signUp.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CancelServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="55" column="119" lean-forward="false" selection-start-line="55" selection-start-column="119" selection-end-line="55" selection-end-column="119" />
+        <state relative-caret-position="209">
+          <caret line="32" column="48" lean-forward="false" selection-start-line="32" selection-start-column="48" selection-end-line="32" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/CarAdder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="41" column="23" lean-forward="true" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/admin_main_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="68" column="47" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/servlets/SignUp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="74" column="31" lean-forward="false" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
+        <state relative-caret-position="305">
+          <caret line="59" column="87" lean-forward="false" selection-start-line="59" selection-start-column="87" selection-end-line="59" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ua/khpi/yesipov/project/filters/AccessFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="47" column="54" lean-forward="false" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+        <state relative-caret-position="657">
+          <caret line="56" column="94" lean-forward="false" selection-start-line="56" selection-start-column="94" selection-end-line="56" selection-end-column="94" />
           <folding>
             <element signature="method#destroy#0;class#AccessFilter#0" expanded="false" />
             <element signature="method#init#0;class#AccessFilter#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/error.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/manager_main_page.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="84" column="53" lean-forward="false" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>

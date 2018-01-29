@@ -29,7 +29,7 @@
     <h1><fmt:message key="welcome"/></h1>
     <br/>
 </header>
-<jsp:include page="language_part.jsp"></jsp:include>
+<jsp:include page="pages/language_part.jsp"></jsp:include>
 <div align="center">
     <div>
         <form name="addForm" action="/carAdder" method="post">
@@ -193,15 +193,15 @@
                     <tr>
                         <td>
                             <fmt:message key="firstName"/>
-                            <input type="text" name="firstNameField" placeholder="<fmt:message key="typeFirstName"/>" required>
+                            <input type="text" name="firstNameField" placeholder="<fmt:message key="typeFirstName"/>" pattern="^[A-ZА-Я][a-zа-яё]+$" required>
                         </td>
                         <td>
                             <fmt:message key="middleName"/>
-                            <input type="text" name="middleField" placeholder="<fmt:message key="typeMiddleName"/>" required>
+                            <input type="text" name="middleField" placeholder="<fmt:message key="typeMiddleName"/>" pattern="^[A-ZА-Я][_a-zа-яё]+$" required>
                         </td>
                         <td>
                             <fmt:message key="lastName"/>
-                            <input type="text" name="lastNameField" placeholder="<fmt:message key="typeLastName"/>" required>
+                            <input type="text" name="lastNameField" placeholder="<fmt:message key="typeLastName"/>" pattern="^[A-ZА-ЯЁ][_a-zA-Zа-яА-ЯёЁ]+$"required>
                         </td>
                         <td>
                             <fmt:message key="birthday"/>
@@ -209,11 +209,12 @@
                         </td>
                         <td>
                             <fmt:message key="login"/>
-                            <input type="text" name="loginField" placeholder="<fmt:message key="typeLogin"/>" required>
+                            <input type="text" name="loginField" placeholder="<fmt:message key="typeLogin"/>" pattern="[_a-zA-Zа-яА-ЯёЁ]+$" required>
                         </td>
                         <td>
                             <fmt:message key="password"/>
-                            <input type="password" name="passwordField" placeholder="<fmt:message key="typePassword"/>" required>
+                            <input type="password" name="passwordField" placeholder="<fmt:message key="typePassword"/>" required
+                                   pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$">
                         </td>
                     </tr>
                 </table>

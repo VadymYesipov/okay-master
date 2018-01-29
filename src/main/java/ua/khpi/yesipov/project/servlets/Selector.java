@@ -1,10 +1,12 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.BrandDAO;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.QualityDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLBrandDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLQualityDAO;
 import ua.khpi.yesipov.project.persistence.domain.Brand;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Quality;
@@ -26,8 +28,7 @@ public class Selector extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Selector is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
+        CarDAO carDAO = new MySQLCarDAO();
 
         HttpSession session = req.getSession();
         List<Car> availableCars = carDAO.selectCars(0);
@@ -55,7 +56,7 @@ public class Selector extends HttpServlet {
         if (parameter.equals("brand")) {
             log.debug("brand select");
 
-            BrandDAO brandDAO = mySqlDAOFactory.getBrandDAO();
+            BrandDAO brandDAO = new MySQLBrandDAO();
             List<Brand> brands = brandDAO.select();
             String param = req.getParameter("selectByBrand");
             for (Brand brand : brands) {
@@ -70,7 +71,7 @@ public class Selector extends HttpServlet {
         if (parameter.equals("quality")) {
             log.debug("quality select");
 
-            QualityDAO qualityDAO = mySqlDAOFactory.getQualityDAO();
+            QualityDAO qualityDAO = new MySQLQualityDAO();
             List<Quality> qualities = qualityDAO.select();
             String param = req.getParameter("selectByQuality");
             for (Quality quality : qualities) {

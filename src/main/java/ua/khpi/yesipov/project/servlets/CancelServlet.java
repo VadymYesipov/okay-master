@@ -1,10 +1,12 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
 import ua.khpi.yesipov.project.persistence.dao.OrderDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLDriverDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLOrderDAO;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Driver;
 import ua.khpi.yesipov.project.persistence.domain.Order;
@@ -26,11 +28,9 @@ public class CancelServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Cancel servlet is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
-        DriverDAO driverDAO = mySqlDAOFactory.getDriverDAO();
-        OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO();
+        CarDAO carDAO = new MySQLCarDAO();
+        DriverDAO driverDAO = new MySQLDriverDAO();
+        OrderDAO orderDAO = new MySQLOrderDAO();
 
         List<Order> orders = orderDAO.selectFutureOrders();
 

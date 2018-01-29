@@ -1,6 +1,7 @@
 package ua.khpi.yesipov.project.persistence.dao.impl;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import ua.khpi.yesipov.project.persistence.dao.Creatable;
 import ua.khpi.yesipov.project.persistence.dao.QualityDAO;
 import ua.khpi.yesipov.project.persistence.domain.Brand;
 import ua.khpi.yesipov.project.persistence.domain.Quality;
@@ -12,34 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLQualityDAO implements QualityDAO {
+public class MySQLQualityDAO implements QualityDAO, Creatable {
 
-    public static final String DRIVER =
-            "com.mysql.jdbc.Driver";
-    public static final String DB_URL =
-            "jdbc:mysql://localhost:3306/orders?useSSL=false";
-    private MysqlDataSource mysqlDataSource;
-
-    private Connection connection;
-    private Statement statement;
-    private ResultSet resultSet;
-
-    public MySQLQualityDAO(Connection connection) {
-        this.connection = connection;
-    }
-
-    public MySQLQualityDAO() throws SQLException {
-        try {
-            Class.forName(DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        mysqlDataSource = new MysqlDataSource();
-        mysqlDataSource.setURL(DB_URL);
-        mysqlDataSource.setUser("root");
-        mysqlDataSource.setPassword("root");
-        this.connection = mysqlDataSource.getConnection();
-    }
+    private static final String SELECT = "SELECT * FROM orders.quality;";
 
     public int insertQuality(Quality quality) {
         return 0;
@@ -58,9 +34,9 @@ public class MySQLQualityDAO implements QualityDAO {
     }
 
     public List<Quality> select() {
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM orders.quality;");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SELECT);
 
             List<Quality> qualities = new ArrayList<Quality>();
             while (resultSet.next()) {

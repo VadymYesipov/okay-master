@@ -1,7 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ page import="ua.khpi.yesipov.project.persistence.MySqlDAOFactory" %>
 <%@ page import="ua.khpi.yesipov.project.persistence.dao.OrderDAO" %>
-<%@ page import="ua.khpi.yesipov.project.persistence.domain.Order" %><%--
+<%@ page import="ua.khpi.yesipov.project.persistence.domain.Order" %>
+<%@ page import="ua.khpi.yesipov.project.persistence.dao.impl.MySQLOrderDAO" %><%--
   Created by IntelliJ IDEA.
   User: User
   Date: 023 23.01.18
@@ -21,15 +21,14 @@
     <h1><fmt:message key="welcome"/></h1>
     <br/>
 </header>
-<jsp:include page="language_part.jsp"></jsp:include>
+<jsp:include page="pages/language_part.jsp"></jsp:include>
 <div align="center">
     <br/>
     <br/>
     <br/>
     <form name="strictForm" action="/cancelServlet" method="post">
         <fmt:message key="strictForm"/></br></br>
-        <%! private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory(); %>
-        <%! private OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO(); %>
+        <%! private OrderDAO orderDAO = new MySQLOrderDAO(); %>
         <select name="possibleOrders">
             <% for (Order order : orderDAO.selectFutureOrders()) { %>
             <option> <%= order.getId() + ": login: " + order.getPerson().getLogin() + ", name: " + order.getPerson().getFirstName() +

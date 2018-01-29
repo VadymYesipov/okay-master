@@ -1,6 +1,7 @@
 package ua.khpi.yesipov.project.persistence.dao.impl;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+import ua.khpi.yesipov.project.persistence.dao.Creatable;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
 import ua.khpi.yesipov.project.persistence.domain.Driver;
 
@@ -11,34 +12,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLDriverDAO implements DriverDAO {
+public class MySQLDriverDAO implements DriverDAO, Creatable {
 
-    public static final String DRIVER =
-            "com.mysql.jdbc.Driver";
-    public static final String DB_URL =
-            "jdbc:mysql://localhost:3306/orders?useSSL=false";
-    private MysqlDataSource mysqlDataSource;
 
-    private Connection connection;
-    private Statement statement;
-    private ResultSet resultSet;
-
-    public MySQLDriverDAO(Connection connection) {
-        this.connection = connection;
-    }
-
-    public MySQLDriverDAO() throws SQLException {
-        try {
-            Class.forName(DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        mysqlDataSource = new MysqlDataSource();
-        mysqlDataSource.setURL(DB_URL);
-        mysqlDataSource.setUser("root");
-        mysqlDataSource.setPassword("root");
-        this.connection = mysqlDataSource.getConnection();
-    }
+    private static final String SELECT = "SELECT * FROM orders.driver WHERE id>1 and isBusy=0;";
 
     public int insertDriver(Driver driver) {
         return 0;
@@ -53,8 +30,8 @@ public class MySQLDriverDAO implements DriverDAO {
     }
 
     public int updateDriver(Driver driver) {
-        try {
-            statement = connection.createStatement();
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
             int i = statement.executeUpdate("UPDATE orders.driver SET isBusy=" + driver.getIsBusy() + " WHERE id>1 and id=" + driver.getId());
 
             statement.close();
@@ -69,9 +46,9 @@ public class MySQLDriverDAO implements DriverDAO {
 
     public List<Driver> selectDrivers() {
         List<Driver> drivers = new ArrayList<Driver>();
-        try {
+        try (Connection connection = createConnection()) {
             Statement statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM orders.driver WHERE id>1 and isBusy=0;");
+            ResultSet resultSet = statement.executeQuery(SELECT);
             while (resultSet.next()) {
                 Driver driver = new Driver();
                 driver.setId(resultSet.getInt(1));
@@ -81,6 +58,9 @@ public class MySQLDriverDAO implements DriverDAO {
 
                 drivers.add(driver);
             }
+
+            resultSet.close();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -2,6 +2,7 @@ package ua.khpi.yesipov.project.persistence.dao.impl;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
+import ua.khpi.yesipov.project.persistence.dao.Creatable;
 import ua.khpi.yesipov.project.persistence.domain.Brand;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Quality;
@@ -10,40 +11,27 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MySQLCarDAO implements CarDAO {
+public class MySQLCarDAO implements CarDAO, Creatable {
 
-    public static final String DRIVER =
-            "com.mysql.jdbc.Driver";
-    public static final String DB_URL =
-            "jdbc:mysql://localhost:3306/orders?useSSL=false";
-    private MysqlDataSource mysqlDataSource;
-
-    private Connection connection;
-    private Statement statement;
-    private ResultSet resultSet;
-
-    public MySQLCarDAO(Connection connection) {
-        this.connection = connection;
-    }
-
-    public MySQLCarDAO() throws SQLException {
-        try {
-            Class.forName(DRIVER);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        mysqlDataSource = new MysqlDataSource();
-        mysqlDataSource.setURL(DB_URL);
-        mysqlDataSource.setUser("root");
-        mysqlDataSource.setPassword("root");
-        this.connection = mysqlDataSource.getConnection();
-    }
+    private static final String UPDATE_DAMAGED = "UPDATE orders.car SET quality_id=4, isOrdered=0 WHERE id=";
+    private static final String DELETE_CAR = "DELETE FROM orders.car WHERE id=";
+    private static final String INSERT_CAR = "INSERT INTO orders.car (id, brand_id, model, quality_id, price, isOrdered) VALUES (?, ?, ?, ?, ?, ?)";
+    private static final String SELECT = "SELECT car.id, brand.id, brand.brand, car.model, quality.id, quality.quality, car.price, car.isOrdered " +
+            "FROM orders.car car\n" +
+            "LEFT JOIN orders.brand brand on car.brand_id=brand.id\n" +
+            "LEFT JOIN orders.quality quality on car.quality_id=quality.id\n";
+    private static final String SELECT_AVAILABLE_BRANDS = "SELECT brand.brand FROM orders.car car\n" +
+            "LEFT JOIN orders.brand brand on car.brand_id=brand.id\n" +
+            "WHERE isOrdered=0;";
+    private static final String SELECT_AVAILABLE_QUALITIES = "SELECT quality.quality FROM orders.car car\n" +
+            "LEFT JOIN orders.quality quality on car.quality_id=quality.id\n" +
+            "WHERE isOrdered=0 and quality.id<4;";
+    private static final String SELECT_COUNT = "SELECT MAX(id) as total FROM orders.car;";
 
     public int insertCar(Car car) {
-        try {
+        try (Connection connection = createConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "INSERT INTO orders.car (id, brand_id, model, quality_id, price, isOrdered) " +
-                            "VALUES (?, ?, ?, ?, ?, ?)");
+                    INSERT_CAR);
             preparedStatement.setInt(1, car.getId());
             preparedStatement.setInt(2, car.getBrand().getId());
             preparedStatement.setString(3, car.getModel());
@@ -62,9 +50,9 @@ public class MySQLCarDAO implements CarDAO {
     }
 
     public boolean deleteCar(Car car) {
-        try {
-            statement = connection.createStatement();
-            statement.executeUpdate("DELETE FROM orders.car WHERE id=" + car.getId() + ";");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate( DELETE_CAR + car.getId() + ";");
             statement.close();
             return true;
         } catch (SQLException e) {
@@ -78,9 +66,9 @@ public class MySQLCarDAO implements CarDAO {
     }
 
     public boolean updateDamaged(Car car) {
-        try {
-            statement = connection.createStatement();
-            statement.executeUpdate("UPDATE orders.car SET quality_id=4, isOrdered=0 WHERE id=" + car.getId());
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(UPDATE_DAMAGED + car.getId());
             statement.close();
             return true;
         } catch (SQLException e) {
@@ -90,8 +78,8 @@ public class MySQLCarDAO implements CarDAO {
     }
 
     public boolean updateCar(Car car) {
-        try {
-            statement = connection.createStatement();
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
             statement.executeUpdate("UPDATE orders.car SET isOrdered=" + car.getIsOrdered()
                     + " WHERE id=" + car.getId());
             statement.close();
@@ -103,8 +91,8 @@ public class MySQLCarDAO implements CarDAO {
     }
 
     public boolean update(Car car) {
-        try {
-            statement = connection.createStatement();
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
             statement.executeUpdate("UPDATE orders.car " +
                     "SET brand_id=" + car.getBrand().getId() + ", model=\"" + car.getModel() +
                     "\", quality_id=" + car.getQuality().getId() + ", price=" + car.getPrice() +
@@ -118,107 +106,85 @@ public class MySQLCarDAO implements CarDAO {
 
     public List<Car> selectCars(int id) {
         List<Car> cars = new ArrayList<Car>();
-        try {
-            String sql = "WHERE car.isOrdered=" + id +";";
-            cars = select(sql, cars);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String sql = "WHERE car.isOrdered=" + id + ";";
+        cars = select(sql, cars);
         return cars;
     }
 
     public List<Car> selectAllCars() {
         List<Car> cars = new ArrayList<Car>();
-        try {
-            String sql = ";";
-            cars = select(sql, cars);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String sql = ";";
+        cars = select(sql, cars);
         return cars;
     }
 
     public List<Car> selectCarsByBrand(String brand) {
         List<Car> cars = new ArrayList<Car>();
-        try {
-            String sql = "WHERE car.isOrdered=0 and brand.brand=\"" + brand + "\";";
-            cars = select(sql, cars);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String sql = "WHERE car.isOrdered=0 and brand.brand=\"" + brand + "\";";
+        cars = select(sql, cars);
         return cars;
     }
 
     public List<Car> selectCarsByQuality(String quality) {
         List<Car> cars = new ArrayList<Car>();
-        try {
-            String sql = "WHERE car.isOrdered=0 and quality.id<4 and quality.quality=\"" + quality + "\";";
-            cars = select(sql, cars);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String sql = "WHERE car.isOrdered=0 and quality.id<4 and quality.quality=\"" + quality + "\";";
+        cars = select(sql, cars);
         return cars;
     }
 
     public List<Car> selectSortedByModel() {
         List<Car> cars = new ArrayList<Car>();
-        try {
-            String sql = "WHERE car.isOrdered=0 ORDER BY model;";
-            cars = select(sql, cars);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        String sql = "WHERE car.isOrdered=0 ORDER BY model;";
+        cars = select(sql, cars);
         return cars;
     }
 
     public List<Car> selectSortedByPrice() {
-        List<Car> cars = new ArrayList<Car>();
-        try {
-            String sql = "WHERE car.isOrdered=0 ORDER BY price DESC;";
-            cars = select(sql, cars);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        List<Car> cars = new ArrayList<>();
+        String sql = "WHERE car.isOrdered=0 ORDER BY price DESC;";
+        cars = select(sql, cars);
         return cars;
     }
 
-    private List<Car> select(String sql, List<Car> cars) throws SQLException {
-        statement = connection.createStatement();
-        resultSet = statement.executeQuery("SELECT car.id, brand.id, brand.brand, car.model, quality.id, quality.quality, car.price, car.isOrdered " +
-                "FROM orders.car car\n" +
-                "LEFT JOIN orders.brand brand on car.brand_id=brand.id\n" +
-                "LEFT JOIN orders.quality quality on car.quality_id=quality.id\n" + sql);
-        while (resultSet.next()) {
-            Car car = new Car();
-            car.setId(resultSet.getInt(1));
+    private List<Car> select(String sql, List<Car> cars) {
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SELECT + sql);
+            while (resultSet.next()) {
+                Car car = new Car();
+                car.setId(resultSet.getInt(1));
 
-            Brand brand = new Brand();
-            brand.setId(resultSet.getInt(2));
-            brand.setName(resultSet.getString(3));
-            car.setBrand(brand);
+                Brand brand = new Brand();
+                brand.setId(resultSet.getInt(2));
+                brand.setName(resultSet.getString(3));
+                car.setBrand(brand);
 
-            car.setModel(resultSet.getString(4));
+                car.setModel(resultSet.getString(4));
 
-            Quality quality = new Quality();
-            quality.setId(resultSet.getInt(5));
-            quality.setName(resultSet.getString(6));
-            car.setQuality(quality);
+                Quality quality = new Quality();
+                quality.setId(resultSet.getInt(5));
+                quality.setName(resultSet.getString(6));
+                car.setQuality(quality);
 
-            car.setPrice(resultSet.getDouble(7));
+                car.setPrice(resultSet.getDouble(7));
 
-            car.setIsOrdered(resultSet.getInt(8));
+                car.setIsOrdered(resultSet.getInt(8));
 
-            cars.add(car);
+                cars.add(car);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return cars;
     }
 
     public List<Brand> selectAvailableBrands() {
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT brand.brand FROM orders.car car\n" +
-                    "LEFT JOIN orders.brand brand on car.brand_id=brand.id\n" +
-                    "WHERE isOrdered=0;");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SELECT_AVAILABLE_BRANDS);
             List<Brand> brands = new ArrayList<Brand>();
             while (resultSet.next() ) {
                 Brand brand = new Brand();
@@ -227,6 +193,10 @@ public class MySQLCarDAO implements CarDAO {
                     brands.add(brand);
                 }
             }
+
+            resultSet.close();
+            statement.close();
+
             return brands;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -235,11 +205,9 @@ public class MySQLCarDAO implements CarDAO {
     }
 
     public List<Quality> selectAvailableQualities() {
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT quality.quality FROM orders.car car\n" +
-                    "LEFT JOIN orders.quality quality on car.quality_id=quality.id\n" +
-                    "WHERE isOrdered=0 and quality.id<4;");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SELECT_AVAILABLE_QUALITIES);
             List<Quality> qualities = new ArrayList<Quality>();
             while (resultSet.next() ) {
                 Quality quality = new Quality();
@@ -248,6 +216,10 @@ public class MySQLCarDAO implements CarDAO {
                     qualities.add(quality);
                 }
             }
+
+            resultSet.close();
+            statement.close();
+
             return qualities;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -257,9 +229,9 @@ public class MySQLCarDAO implements CarDAO {
 
     public double selectPrice(String model) {
         double price = 0;
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT car.price FROM orders.car car WHERE car.model=\"" + model + "\";");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT car.price FROM orders.car car WHERE car.model=\"" + model + "\";");
             while (resultSet.next()) {
                 price = resultSet.getDouble(1);
             }
@@ -272,9 +244,9 @@ public class MySQLCarDAO implements CarDAO {
     }
 
     public Integer selectCount() {
-        try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT MAX(id) as total FROM orders.car;");
+        try (Connection connection = createConnection()) {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SELECT_COUNT);
 
             int total = 0;
             while (resultSet.next()) {

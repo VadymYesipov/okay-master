@@ -1,10 +1,12 @@
 package ua.khpi.yesipov.project.servlets;
 
 import org.apache.log4j.Logger;
-import ua.khpi.yesipov.project.persistence.MySqlDAOFactory;
 import ua.khpi.yesipov.project.persistence.dao.CarDAO;
 import ua.khpi.yesipov.project.persistence.dao.DriverDAO;
 import ua.khpi.yesipov.project.persistence.dao.OrderDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLCarDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLDriverDAO;
+import ua.khpi.yesipov.project.persistence.dao.impl.MySQLOrderDAO;
 import ua.khpi.yesipov.project.persistence.domain.Car;
 import ua.khpi.yesipov.project.persistence.domain.Driver;
 import ua.khpi.yesipov.project.persistence.domain.Order;
@@ -27,10 +29,9 @@ public class Rent extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         log.debug("Rent is starting");
 
-        MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-        CarDAO carDAO = mySqlDAOFactory.getCarDAO();
-        OrderDAO orderDAO = mySqlDAOFactory.getOrderDAO();
-        DriverDAO driverDAO = mySqlDAOFactory.getDriverDAO();
+        CarDAO carDAO = new MySQLCarDAO();
+        OrderDAO orderDAO = new MySQLOrderDAO();
+        DriverDAO driverDAO = new MySQLDriverDAO();
         HttpSession session = req.getSession();
 
         Order order = new Order();
@@ -39,7 +40,8 @@ public class Rent extends HttpServlet {
 
         Car car = (Car) session.getAttribute("car");
         if (car == null) {
-            resp.sendRedirect("pages/orderError.jsp");
+            session.setAttribute("error", "Something is wrong");
+            resp.sendRedirect("pages/error.jsp");
             return;
         }
         car.setIsOrdered(1);
