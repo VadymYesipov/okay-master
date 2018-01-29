@@ -54,11 +54,9 @@ public class SignUp extends HttpServlet {
 
         person.setIsBlocked(0);
 
-        Person customer = personDAO.findCustomer(login, password);
-        Person admin = personDAO.findAdmin(login, password);
-        Person manager = personDAO.findManager(login, password);
+        Person oldPerson = personDAO.findPerson(login);
 
-        if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
+        if (oldPerson != null) {
             log.debug("Redirect ro sign up error");
             resp.sendRedirect("pages/signUpError.jsp");
         } else {
@@ -73,7 +71,8 @@ public class SignUp extends HttpServlet {
 
             personDAO.insertPerson(person);
             personList.add(person);
-            resp.sendRedirect("pages/signIn.jsp");
+            session.setAttribute("person", person);
+            resp.sendRedirect("signIn.jsp");
         }
     }
 

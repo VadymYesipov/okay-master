@@ -38,11 +38,9 @@ public class Register extends HttpServlet {
         String login = req.getParameter("loginField");
         String password = req.getParameter("passwordField");
 
-        Person customer = personDAO.findCustomer(login, password);
-        Person admin = personDAO.findAdmin(login, password);
-        Person manager = personDAO.findManager(login, password);
+        Person oldPerson = personDAO.findPerson(login);
 
-        if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
+        if (oldPerson != null) {
             log.debug("Redirect to register manager error");
             resp.sendRedirect("pages/registerManagerError.jsp");
             return;

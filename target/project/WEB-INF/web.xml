@@ -4,9 +4,18 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <filter>
+        <filter-name>AccessFilter</filter-name>
+        <filter-class>ua.khpi.yesipov.project.filters.AccessFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AccessFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>Sign Up</servlet-name>
-        <servlet-class>servlets.SignUp</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.SignUp</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Sign Up</servlet-name>
@@ -15,7 +24,7 @@
 
     <servlet>
         <servlet-name>Sign In</servlet-name>
-        <servlet-class>servlets.SignIn</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.SignIn</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Sign In</servlet-name>
@@ -24,7 +33,7 @@
 
     <servlet>
         <servlet-name>Selector</servlet-name>
-        <servlet-class>servlets.Selector</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.Selector</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Selector</servlet-name>
@@ -33,7 +42,7 @@
 
     <servlet>
         <servlet-name>Price getter</servlet-name>
-        <servlet-class>servlets.PriceGetter</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.PriceGetter</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Price getter</servlet-name>
@@ -42,7 +51,7 @@
 
     <servlet>
         <servlet-name>Rent</servlet-name>
-        <servlet-class>servlets.Rent</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.Rent</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Rent</servlet-name>
@@ -51,7 +60,7 @@
 
     <servlet>
         <servlet-name>Car adder</servlet-name>
-        <servlet-class>servlets.CarAdder</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.CarAdder</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Car adder</servlet-name>
@@ -60,7 +69,7 @@
 
     <servlet>
         <servlet-name>Car deleter</servlet-name>
-        <servlet-class>servlets.CarDeleter</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.CarDeleter</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Car deleter</servlet-name>
@@ -69,7 +78,7 @@
 
     <servlet>
         <servlet-name>Block unblock</servlet-name>
-        <servlet-class>servlets.BlockUnblock</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.BlockUnblock</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Block unblock</servlet-name>
@@ -78,7 +87,7 @@
 
     <servlet>
         <servlet-name>Register</servlet-name>
-        <servlet-class>servlets.Register</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.Register</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Register</servlet-name>
@@ -87,7 +96,7 @@
 
     <servlet>
         <servlet-name>Changer</servlet-name>
-        <servlet-class>servlets.Changer</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.Changer</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Changer</servlet-name>
@@ -96,7 +105,7 @@
 
     <servlet>
         <servlet-name>Cancel</servlet-name>
-        <servlet-class>servlets.CancelServlet</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.CancelServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Cancel</servlet-name>
@@ -105,7 +114,7 @@
 
     <servlet>
         <servlet-name>Punisher</servlet-name>
-        <servlet-class>servlets.Punisher</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.Punisher</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Punisher</servlet-name>
@@ -114,7 +123,7 @@
 
     <servlet>
         <servlet-name>LocaleServlet</servlet-name>
-        <servlet-class>servlets.LocaleServlet</servlet-class>
+        <servlet-class>ua.khpi.yesipov.project.servlets.LocaleServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LocaleServlet</servlet-name>
@@ -122,11 +131,11 @@
     </servlet-mapping>
     
     <listener>
-        <listener-class>listeners.ContextListener</listener-class>
+        <listener-class>ua.khpi.yesipov.project.listeners.ContextListener</listener-class>
     </listener>
     
     <welcome-file-list>
-        <welcome-file>pages/signIn.jsp</welcome-file>
+        <welcome-file>signIn.jsp</welcome-file>
     </welcome-file-list>
 
     <resource-ref>

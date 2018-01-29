@@ -53,47 +53,20 @@ public class MySQLPersonDAO implements PersonDAO {
         return false;
     }
 
-    public Person findCustomer(String login, String password) {
-        return findPerson(login, password, 2);
-    }
-
-    public Person findAdmin(String login, String password) {
-        return findPerson(login, password, 1);
-    }
-
-    public Person findManager(String login, String password) {
-        return findPerson(login, password, 3);
-    }
-
-    private Person findPerson(String login, String password, int role_id) {
+    public Person findPerson(String login) {
         try {
             preparedStatement = connection.prepareStatement("SELECT person.id, role.id, role.role, first_name, middle_name, last_name, birthday, login, password " +
                     "FROM orders.person person  " +
                     "LEFT JOIN orders.role role on person.role_id=role.id " +
-                    "WHERE login=? and password=? and isBlocked=0 and role_id=" + role_id);
+                    "WHERE login=? and isBlocked=0");
 
             preparedStatement.setString(1, login);
-            preparedStatement.setString(2, password);
 
             resultSet = preparedStatement.executeQuery();
 
             Person person = new Person();
-            if (resultSet.next()) {
-                person.setId(resultSet.getInt(1));
 
-                Role role = new Role();
-                role.setId(resultSet.getInt(2));
-                role.setRole(resultSet.getString(3));
-                person.setRole(role);
-
-                person.setFirstName(resultSet.getString(4));
-                person.setMiddleName(resultSet.getString(5));
-                person.setLastName(resultSet.getString(6));
-                person.setBirthday(resultSet.getDate(7));
-
-                person.setLogin(resultSet.getString(8));
-                person.setPassword(resultSet.getString(9));
-            }
+            method(person);
 
             resultSet.close();
             preparedStatement.close();
@@ -104,6 +77,52 @@ public class MySQLPersonDAO implements PersonDAO {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public Person findPerson(String login, String password) {
+        try {
+            preparedStatement = connection.prepareStatement("SELECT person.id, role.id, role.role, first_name, middle_name, last_name, birthday, login, password " +
+                    "FROM orders.person person  " +
+                    "LEFT JOIN orders.role role on person.role_id=role.id " +
+                    "WHERE login=? and password=? and isBlocked=0");
+
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
+
+            resultSet = preparedStatement.executeQuery();
+
+            Person person = new Person();
+
+            method(person);
+
+            resultSet.close();
+            preparedStatement.close();
+            //connection.close();
+
+            return person;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void method(Person person) throws SQLException {
+        if (resultSet.next()) {
+            person.setId(resultSet.getInt(1));
+
+            Role role = new Role();
+            role.setId(resultSet.getInt(2));
+            role.setRole(resultSet.getString(3));
+            person.setRole(role);
+
+            person.setFirstName(resultSet.getString(4));
+            person.setMiddleName(resultSet.getString(5));
+            person.setLastName(resultSet.getString(6));
+            person.setBirthday(resultSet.getDate(7));
+
+            person.setLogin(resultSet.getString(8));
+            person.setPassword(resultSet.getString(9));
+        }
     }
 
     public boolean updatePerson(Person person) {

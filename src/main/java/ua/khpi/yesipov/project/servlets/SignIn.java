@@ -18,8 +18,6 @@ import java.util.List;
 public class SignIn extends HttpServlet {
 
     private MySqlDAOFactory mySqlDAOFactory = new MySqlDAOFactory();
-    private RoleDAO roleDAO = mySqlDAOFactory.getRoleDAO();
-    private final List<Role> roles = roleDAO.selectRoles();
     private PersonDAO personDAO = mySqlDAOFactory.getPersonDAO();
     private static final Logger log = Logger.getLogger(SignIn.class);
 
@@ -32,40 +30,37 @@ public class SignIn extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-        Person customer = personDAO.findCustomer(login, password);
-        Person admin = personDAO.findAdmin(login, password);
-        Person manager = personDAO.findManager(login, password);
+        Person person = personDAO.findPerson(login, password);
 
-        if (customer.getRole() != null || admin.getRole() != null || manager.getRole() != null) {
-
-            if (customer.getRole() != null) {
-                log.debug("Redirect to customer main page");
-                session.setAttribute("person", customer);
-                resp.sendRedirect("pages/customer_main_page.jsp");
-                //req.getRequestDispatcher("/userPage").forward(req, resp);
-            } else if (admin.getRole() != null) {
-                log.debug("Redirect to admin main page");
-                session.setAttribute("person", admin);
-                resp.sendRedirect("pages/admin_main_page.jsp");
-            } else if (manager.getRole() != null) {
-                log.debug("Redirect to manager main page");
-                session.setAttribute("person", manager);
-                resp.sendRedirect("pages/manager_main_page.jsp");
-            }
-
-        } else {
-            log.debug("Redirect to customer main page");
+        if (person != null) {
+            method(person, resp, session);
+        }
+        else {
+            log.debug("Redirect to sign up");
             resp.sendRedirect("pages/signUp.jsp");
+        }
+    }
+
+    private void method(Person person, HttpServletResponse resp, HttpSession session) throws IOException {
+        switch (person.getRole().getId()) {
+            case 1:
+                session.setAttribute("person", person);
+                log.debug("Redirect to admin main page");
+                resp.sendRedirect("pages/admin_main_page.jsp");
+                break;
+            case 2:
+                log.debug("Redirect to customer main page");
+                resp.sendRedirect("pages/customer_main_page.jsp");
+                break;
+            case 3:
+                log.debug("Redirect to manager main page");
+                resp.sendRedirect("pages/manager_main_page.jsp");
+                break;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        service(req, resp);
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         service(req, resp);
     }
 }

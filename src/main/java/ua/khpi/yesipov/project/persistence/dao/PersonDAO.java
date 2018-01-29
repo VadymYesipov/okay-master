@@ -10,11 +10,9 @@ public interface PersonDAO {
 
     public boolean deletePerson(Person person);
 
-    public Person findCustomer(String login, String password);
+    public Person findPerson(String login);
 
-    public Person findAdmin(String login, String password);
-
-    public Person findManager(String login, String password);
+    public Person findPerson(String login, String password);
 
     public boolean updatePerson(Person person);
 
